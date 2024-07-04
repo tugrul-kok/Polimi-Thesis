@@ -1,0 +1,3 @@
+TIME ELAPSED
+Chekpoint: 1.00 s
+Copy: 0 s

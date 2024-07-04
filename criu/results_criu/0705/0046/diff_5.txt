@@ -1,0 +1,650 @@
+8c8
+< 	Last DB ID: 414
+---
+> 	Last DB ID: 364
+11c11
+< 	Store ID: 414
+---
+> 	Store ID: 330
+13,23c13
+< 	Source MID: 10
+< 	Topic: /mqtt-bench/benchmark/2
+< 	QoS: 2
+< 	Retain: 0
+< 	Payload Length: 2048
+< 	Expiry Time: 0
+< DB_CHUNK_MSG_STORE:
+< 	Length: 2119
+< 	Store ID: 413
+< 	Source Port: 1883
+< 	Source MID: 10
+---
+> 	Source MID: 8
+31c21
+< 	Store ID: 412
+---
+> 	Store ID: 327
+33,53c23
+< 	Source MID: 10
+< 	Topic: /mqtt-bench/benchmark/0
+< 	QoS: 2
+< 	Retain: 1
+< 	Payload Length: 2048
+< 	Expiry Time: 0
+< DB_CHUNK_MSG_STORE:
+< 	Length: 2119
+< 	Store ID: 411
+< 	Source Port: 1883
+< 	Source MID: 10
+< 	Topic: /mqtt-bench/benchmark/1
+< 	QoS: 2
+< 	Retain: 0
+< 	Payload Length: 2048
+< 	Expiry Time: 0
+< DB_CHUNK_MSG_STORE:
+< 	Length: 2119
+< 	Store ID: 410
+< 	Source Port: 1883
+< 	Source MID: 10
+---
+> 	Source MID: 8
+56,75d25
+< 	Retain: 0
+< 	Payload Length: 2048
+< 	Expiry Time: 0
+< DB_CHUNK_MSG_STORE:
+< 	Length: 2119
+< 	Store ID: 369
+< 	Source Port: 1883
+< 	Source MID: 9
+< 	Topic: /mqtt-bench/benchmark/2
+< 	QoS: 2
+< 	Retain: 0
+< 	Payload Length: 2048
+< 	Expiry Time: 0
+< DB_CHUNK_MSG_STORE:
+< 	Length: 2119
+< 	Store ID: 368
+< 	Source Port: 1883
+< 	Source MID: 9
+< 	Topic: /mqtt-bench/benchmark/4
+< 	QoS: 2
+81c31
+< 	Store ID: 367
+---
+> 	Store ID: 291
+83c33
+< 	Source MID: 9
+---
+> 	Source MID: 7
+91c41
+< 	Store ID: 366
+---
+> 	Store ID: 290
+93c43
+< 	Source MID: 9
+---
+> 	Source MID: 7
+96,115d45
+< 	Retain: 0
+< 	Payload Length: 2048
+< 	Expiry Time: 0
+< DB_CHUNK_MSG_STORE:
+< 	Length: 2119
+< 	Store ID: 365
+< 	Source Port: 1883
+< 	Source MID: 9
+< 	Topic: /mqtt-bench/benchmark/3
+< 	QoS: 2
+< 	Retain: 0
+< 	Payload Length: 2048
+< 	Expiry Time: 0
+< DB_CHUNK_MSG_STORE:
+< 	Length: 2119
+< 	Store ID: 327
+< 	Source Port: 1883
+< 	Source MID: 8
+< 	Topic: /mqtt-bench/benchmark/3
+< 	QoS: 2
+132c62,63
+< 	Last MID: 50
+---
+> 	Listener port: 1883
+> 	Last MID: 40
+135,234d65
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 366
+< 	MID: 41
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 365
+< 	MID: 42
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 367
+< 	MID: 43
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 368
+< 	MID: 44
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 369
+< 	MID: 45
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 411
+< 	MID: 46
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 412
+< 	MID: 47
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 410
+< 	MID: 48
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 413
+< 	MID: 49
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 31
+< 	Client ID: mqttbench1-11-0
+< 	Store ID: 414
+< 	MID: 50
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+238c69,70
+< 	Last MID: 50
+---
+> 	Listener port: 1883
+> 	Last MID: 40
+241,340d72
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 366
+< 	MID: 41
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 365
+< 	MID: 42
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 367
+< 	MID: 43
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 368
+< 	MID: 44
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 369
+< 	MID: 45
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 411
+< 	MID: 46
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 412
+< 	MID: 47
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 410
+< 	MID: 48
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 413
+< 	MID: 49
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-372-1
+< 	Store ID: 414
+< 	MID: 50
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+351c83,84
+< 	Last MID: 50
+---
+> 	Listener port: 1883
+> 	Last MID: 40
+354,453d86
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 366
+< 	MID: 41
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 365
+< 	MID: 42
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 367
+< 	MID: 43
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 368
+< 	MID: 44
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 369
+< 	MID: 45
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 411
+< 	MID: 46
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 412
+< 	MID: 47
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 410
+< 	MID: 48
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 413
+< 	MID: 49
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-118-2
+< 	Store ID: 414
+< 	MID: 50
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+457c90,91
+< 	Last MID: 50
+---
+> 	Listener port: 1883
+> 	Last MID: 40
+460,559d93
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 366
+< 	MID: 41
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 365
+< 	MID: 42
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 367
+< 	MID: 43
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 368
+< 	MID: 44
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 369
+< 	MID: 45
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 411
+< 	MID: 46
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 412
+< 	MID: 47
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 410
+< 	MID: 48
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 413
+< 	MID: 49
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-527-4
+< 	Store ID: 414
+< 	MID: 50
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+570c104,105
+< 	Last MID: 50
+---
+> 	Listener port: 1883
+> 	Last MID: 40
+573,672d107
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 366
+< 	MID: 41
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 365
+< 	MID: 42
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 367
+< 	MID: 43
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 368
+< 	MID: 44
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 369
+< 	MID: 45
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 411
+< 	MID: 46
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 412
+< 	MID: 47
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 410
+< 	MID: 48
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 413
+< 	MID: 49
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+< DB_CHUNK_CLIENT_MSG:
+< 	Length: 32
+< 	Client ID: mqttbench1-819-8
+< 	Store ID: 414
+< 	MID: 50
+< 	QoS: 2
+< 	Retain: 0
+< 	Direction: 1
+< 	State: 11
+< 	Dup: 0
+713c148
+< 	Store ID: 413
+---
+> 	Store ID: 330
+716c151
+< 	Store ID: 367
+---
+> 	Store ID: 291
+719c154
+< 	Store ID: 412
+---
+> 	Store ID: 290

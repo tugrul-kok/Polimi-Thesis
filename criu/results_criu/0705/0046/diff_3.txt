@@ -1,0 +1,72 @@
+8c8
+< 	Last DB ID: 254
+---
+> 	Last DB ID: 210
+11c11
+< 	Store ID: 254
+---
+> 	Store ID: 174
+13,14c13,14
+< 	Source MID: 6
+< 	Topic: /mqtt-bench/benchmark/2
+---
+> 	Source MID: 4
+> 	Topic: /mqtt-bench/benchmark/0
+21c21
+< 	Store ID: 250
+---
+> 	Store ID: 172
+23,24c23,24
+< 	Source MID: 6
+< 	Topic: /mqtt-bench/benchmark/3
+---
+> 	Source MID: 4
+> 	Topic: /mqtt-bench/benchmark/1
+31c31
+< 	Store ID: 174
+---
+> 	Store ID: 134
+33,34c33,34
+< 	Source MID: 4
+< 	Topic: /mqtt-bench/benchmark/0
+---
+> 	Source MID: 3
+> 	Topic: /mqtt-bench/benchmark/2
+41c41
+< 	Store ID: 172
+---
+> 	Store ID: 133
+43,44c43,44
+< 	Source MID: 4
+< 	Topic: /mqtt-bench/benchmark/1
+---
+> 	Source MID: 3
+> 	Topic: /mqtt-bench/benchmark/3
+63c63
+< 	Last MID: 30
+---
+> 	Last MID: 20
+70c70
+< 	Last MID: 30
+---
+> 	Last MID: 20
+84c84
+< 	Last MID: 30
+---
+> 	Last MID: 20
+91c91
+< 	Last MID: 30
+---
+> 	Last MID: 20
+105c105
+< 	Last MID: 30
+---
+> 	Last MID: 20
+145c145
+< 	Store ID: 254
+---
+> 	Store ID: 134
+157c157
+< 	Store ID: 250
+---
+> 	Store ID: 133

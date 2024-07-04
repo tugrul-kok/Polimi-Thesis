@@ -1,0 +1,157 @@
+Mosquitto DB dump
+CRC: 0
+DB version: 6
+DB_CHUNK_CFG:
+	Length: 16
+	Shutdown: 0
+	DB ID size: 8
+	Last DB ID: 364
+DB_CHUNK_MSG_STORE:
+	Length: 2119
+	Store ID: 330
+	Source Port: 1883
+	Source MID: 8
+	Topic: /mqtt-bench/benchmark/4
+	QoS: 2
+	Retain: 1
+	Payload Length: 2048
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 2119
+	Store ID: 327
+	Source Port: 1883
+	Source MID: 8
+	Topic: /mqtt-bench/benchmark/3
+	QoS: 2
+	Retain: 1
+	Payload Length: 2048
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 2119
+	Store ID: 291
+	Source Port: 1883
+	Source MID: 7
+	Topic: /mqtt-bench/benchmark/1
+	QoS: 2
+	Retain: 1
+	Payload Length: 2048
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 2119
+	Store ID: 290
+	Source Port: 1883
+	Source MID: 7
+	Topic: /mqtt-bench/benchmark/0
+	QoS: 2
+	Retain: 1
+	Payload Length: 2048
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 2119
+	Store ID: 254
+	Source Port: 1883
+	Source MID: 6
+	Topic: /mqtt-bench/benchmark/2
+	QoS: 2
+	Retain: 1
+	Payload Length: 2048
+	Expiry Time: 0
+DB_CHUNK_CLIENT:
+	Length: 39
+	Client ID: mqttbench1-11-0
+	Listener port: 1883
+	Last MID: 40
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 40
+	Client ID: mqttbench1-372-1
+	Listener port: 1883
+	Last MID: 40
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 40
+	Client ID: mqttbench1-221-1
+	Listener port: 1883
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 40
+	Client ID: mqttbench1-118-2
+	Listener port: 1883
+	Last MID: 40
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 40
+	Client ID: mqttbench1-527-4
+	Listener port: 1883
+	Last MID: 40
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 40
+	Client ID: mqttbench1-252-4
+	Listener port: 1883
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 40
+	Client ID: mqttbench1-819-8
+	Listener port: 1883
+	Last MID: 40
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_SUB:
+	Length: 50
+	Client ID: mqttbench1-11-0
+	Topic: /mqtt-bench/benchmark/#
+	QoS: 2
+	Subscription ID: 0
+	Options: 0x00
+DB_CHUNK_SUB:
+	Length: 51
+	Client ID: mqttbench1-372-1
+	Topic: /mqtt-bench/benchmark/#
+	QoS: 2
+	Subscription ID: 0
+	Options: 0x00
+DB_CHUNK_SUB:
+	Length: 51
+	Client ID: mqttbench1-118-2
+	Topic: /mqtt-bench/benchmark/#
+	QoS: 2
+	Subscription ID: 0
+	Options: 0x00
+DB_CHUNK_SUB:
+	Length: 51
+	Client ID: mqttbench1-527-4
+	Topic: /mqtt-bench/benchmark/#
+	QoS: 2
+	Subscription ID: 0
+	Options: 0x00
+DB_CHUNK_SUB:
+	Length: 51
+	Client ID: mqttbench1-819-8
+	Topic: /mqtt-bench/benchmark/#
+	QoS: 2
+	Subscription ID: 0
+	Options: 0x00
+DB_CHUNK_RETAIN:
+	Length: 8
+	Store ID: 254
+DB_CHUNK_RETAIN:
+	Length: 8
+	Store ID: 330
+DB_CHUNK_RETAIN:
+	Length: 8
+	Store ID: 291
+DB_CHUNK_RETAIN:
+	Length: 8
+	Store ID: 290
+DB_CHUNK_RETAIN:
+	Length: 8
+	Store ID: 327
