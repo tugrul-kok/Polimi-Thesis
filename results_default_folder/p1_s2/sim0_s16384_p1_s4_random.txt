@@ -1,2 +1,0 @@
-1720277601309: [2J[Hmosquitto-broker	0.00%	904KiB / 7.658GiB
-1720277601800: [2J[Hmosquitto-broker	0.00%	904KiB / 7.658GiB
