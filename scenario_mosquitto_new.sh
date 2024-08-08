@@ -14,14 +14,14 @@ PRETIME=2000
 INTERVAL_TIME=10000
 QOS=2
 RETAIN="true"
-NUM_TOPICS=${NUM_TOPICS:-1} # Number of topics, default is 1
+NUM_TOPICS=3 #${NUM_TOPICS:-1} # Number of topics, default is 1
 #CLEANSESSION="false"
 NUM_SIMULATIONS=1
-RESULTS_FOLDER="results_new/"
+RESULTS_FOLDER_BASE="results_new/"
 
 BROKER="tcp://172.20.0.2:1883"
 
-mkdir -p $RESULTS_FOLDER
+mkdir -p $RESULTS_FOLDER_BASE
 
 echo "Creating a new network..."
 docker network rm myNet
@@ -49,7 +49,7 @@ do
       sleep 1
       docker login
       name="sim${round}_s${size}_p${PUBLISHER[i]}_s${SUBSCRIBER[i]}_${RETAIN}_qos${QOS}_topics${NUM_TOPICS}" # Added QoS and number of topics to the file name
-      RESULTS_FOLDER="results_great_sim/p${PUBLISHER[i]}_s${SUBSCRIBER[i]}"
+      RESULTS_FOLDER="$RESULTS_FOLDER_BASE/p${PUBLISHER[i]}_s${SUBSCRIBER[i]}"
       mkdir -p $RESULTS_FOLDER
       echo "---------------------------------------------------"
       echo "TEST: $name"
