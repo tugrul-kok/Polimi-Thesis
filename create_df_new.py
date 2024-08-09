@@ -5,6 +5,7 @@ import re
 import statistics
 import pandas as pd
 import logging
+
 logging.basicConfig(level=logging.INFO)
 
 def to_bytes(val, bsize=1024):
@@ -34,13 +35,11 @@ def parse_ram(files, path):
         qos = int(parts[5].replace('qos', ''))
         topics = int(parts[6].replace('topics', '').replace('.txt', ''))
 
-        if sim_num not in res_max:
-            res_max[sim_num] = {}
-            res_avg[sim_num] = {}
+        key = (sim_num, pub_num, sub_num, data_size, retain, qos, topics)
 
-        if pub_num not in res_max[sim_num]:
-            res_max[sim_num][pub_num] = {}
-            res_avg[sim_num][pub_num] = {}
+        if key not in res_max:
+            res_max[key] = {}
+            res_avg[key] = {}
 
         with open(file_path) as f:
             lines = f.readlines()
@@ -49,8 +48,8 @@ def parse_ram(files, path):
 
         ram_results = [li[-1].split(' ')[0] for li in parse]
         byte_results = [to_bytes(v) for v in ram_results if v != '--']
-        res_max[sim_num][pub_num][data_size] = round(max(byte_results))
-        res_avg[sim_num][pub_num][data_size] = round(statistics.mean(byte_results))
+        res_max[key] = round(max(byte_results))
+        res_avg[key] = round(statistics.mean(byte_results))
 
         logging.info(f"Processed RAM file: {file_path}")
 
@@ -62,20 +61,24 @@ def parse_db(files, path):
     for file_name in files:
         file_path = os.path.join(path, file_name)
         parts = file_name.split('/')[-1].split('_')
-        sim_num = int(parts[1].replace('sim', ''))
+        # Adjust the extraction logic to handle 'ls_sim' properly
+        sim_num = int(parts[1].replace('sim', ''))  # 'sim0' comes after 'ls_'
         data_size = int(re.sub("[^0-9]", "", parts[2]))
         pub_num = int(re.sub("[^0-9]", "", parts[3]))
+        sub_num = int(re.sub("[^0-9]", "", parts[4]))
+        retain = parts[5]
+        qos = int(parts[6].replace('qos', ''))
+        topics = int(parts[7].replace('topics', '').replace('.txt', ''))
 
-        if sim_num not in res:
-            res[sim_num] = {}
+        key = (sim_num, pub_num, sub_num, data_size, retain, qos, topics)
 
-        if pub_num not in res[sim_num]:
-            res[sim_num][pub_num] = {}
+        if key not in res:
+            res[key] = {}
 
         with open(file_path) as f:
             lines = f.readlines()
 
-        res[sim_num][pub_num][data_size] = to_bytes(''.join(lines).replace('\n', ''))
+        res[key] = to_bytes(''.join(lines).replace('\n', ''))
 
         logging.info(f"Processed DB file: {file_path}")
 
@@ -99,30 +102,21 @@ def main():
         dir_path = os.path.join(base_folder, dir_name)
         if os.path.isdir(dir_path):
             result_avg, result_db = process_folder(dir_path)
-            for sim_key, sim_value in result_avg.items():
-                for pub_num, message_sizes in sim_value.items():
-                    for message_size, ram_usage in message_sizes.items():
-                        database_size = result_db[sim_key][pub_num].get(message_size, None)
+            for key, ram_usage in result_avg.items():
+                sim_num, pub_num, sub_num, message_size, retain, qos, topics = key
+                database_size = result_db.get(key, None)
 
-                        # Split file name to extract additional parameters
-                        for file_name in os.listdir(dir_path):
-                            if isfile(join(dir_path, file_name)) and file_name.startswith('sim'):
-                                parts = file_name.split('_')
-                                retain = parts[4]
-                                qos = int(parts[5].replace('qos', ''))
-                                topics = int(parts[6].replace('topics', '').replace('.txt', ''))
-
-                                data.append({
-                                    'simulation_number': sim_key,
-                                    'publisher_number': pub_num,
-                                    'subscriber_number': int(dir_name.split('_')[1][1:]),
-                                    'message_size': message_size,
-                                    'retain': retain,
-                                    'qos': qos,
-                                    'topics': topics,
-                                    'ram_usage': ram_usage,
-                                    'database_size': database_size
-                                })
+                data.append({
+                    'simulation_number': sim_num,
+                    'publisher_number': pub_num,
+                    'subscriber_number': sub_num,
+                    'message_size': message_size,
+                    'retain': retain,
+                    'qos': qos,
+                    'topics': topics,
+                    'ram_usage': ram_usage,
+                    'database_size': database_size
+                })
 
     df = pd.DataFrame(data)
     df.to_csv('results_new.csv', index=False)  # Save as CSV file
