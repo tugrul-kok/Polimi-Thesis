@@ -1,0 +1,12 @@
+timestamp,sent_bitrate,received_bitrate,jitter_ms,packet_loss
+1726659516,16429.745551395907,16420.249389391538,,
+timestamp,sent_bitrate,received_bitrate,jitter_ms,packet_loss
+1726659556,15809.028873549572,15803.413059609966,,
+timestamp,sent_bitrate,received_bitrate,jitter_ms,packet_loss
+1726659597,13964.572418955875,13959.005046435545,,
+timestamp,sent_bitrate,received_bitrate,jitter_ms,packet_loss
+1726659637,1338.445905357426,1329.8144929285893,,
+timestamp,sent_bitrate,received_bitrate,jitter_ms,packet_loss
+1726659677,14770.52456572175,14761.882901097619,,
+timestamp,sent_bitrate,received_bitrate,jitter_ms,packet_loss
+1726659717,14850.724387924934,14844.68074469969,,
