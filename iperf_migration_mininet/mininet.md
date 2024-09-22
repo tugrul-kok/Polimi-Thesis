@@ -31,4 +31,5 @@ nano custom_topology.py
 
 ### Don't forget to start ryu controller before mini-net
 ryu-manager ryu.app.simple_switch_13
+
 sudo python custom_topology.py
