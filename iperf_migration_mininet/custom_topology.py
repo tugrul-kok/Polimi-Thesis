@@ -49,14 +49,19 @@ def customNet():
     print("[INFO] Updating OpenFlow rules to direct traffic to h3 (port 3)...")
     s1.cmd('ovs-ofctl del-flows s1')
     s1.cmd('ovs-ofctl add-flow s1 priority=65535,ip,nw_dst=10.0.0.1,actions=output:3')
-    
-    print("[INFO] Sleeping 20s after network update...")
-    sleep(20)
-    # Run CLI for manual interaction
-    print("[INFO] Running Mininet CLI...")
-    CLI(net)
 
-    # After CLI command, stop network
+    # Sleep a little after network update
+    print("[INFO] Sleeping 5s after network update...")
+    sleep(5)
+
+    # Shut down h1
+    print("[INFO] Shutting down h1...")
+    h1.cmd('ifconfig h1-eth0 down')
+    h1.cmd('kill %iperf')  # This command kills the iPerf server process on h1
+    print("[INFO] Sleeping 20s after h1 is down...")
+    sleep(20)
+
+    #  stop network
     print("[INFO] Stopping the network...")
     net.stop()
 
