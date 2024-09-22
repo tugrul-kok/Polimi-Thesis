@@ -49,8 +49,8 @@ def customNet():
     print("[INFO] Updating OpenFlow rules to direct traffic to h3 (port 3)...")
     s1.cmd('ovs-ofctl del-flows s1')
     s1.cmd('ovs-ofctl add-flow s1 priority=65535,ip,nw_dst=10.0.0.1,actions=output:3')
+    
     print("[INFO] Sleeping 20s after network update...")
-
     sleep(20)
     # Run CLI for manual interaction
     print("[INFO] Running Mininet CLI...")

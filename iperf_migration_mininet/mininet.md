@@ -22,6 +22,6 @@ libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-o
 nano custom_topology.py
 
 
-
+# Don't forget to start ryu controller before mini-net
 ryu-manager ryu.app.simple_switch_13
 sudo python custom_topology.py
