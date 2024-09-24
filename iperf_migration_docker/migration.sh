@@ -27,10 +27,11 @@ CUSTOM_SERVER_IMAGE_SECOND=custom_iperf_server_second
 # Define downtime log file
 DOWNTIME_LOG=logs/downtime_log.txt
 
-# Clean up any existing containers, network, and directories
-echo "Cleaning up existing containers, network, and directories..."
+# Clean up any existing containers, networks, volumes, and directories
+echo "Cleaning up existing containers, networks, volumes, and directories..."
 docker rm -f $CLIENT_NAME $SERVER_NAME $IDLE_SERVER_NAME 2>/dev/null
 docker network rm $NETWORK_NAME 2>/dev/null
+docker volume rm second_server_db_volume 2>/dev/null
 rm -rf logs
 
 # Create Docker network
@@ -44,6 +45,9 @@ echo "Building custom Docker images..."
 docker build -t $CUSTOM_SERVER_IMAGE_FIRST -f Dockerfile.first .
 docker build -t $CUSTOM_SERVER_IMAGE_SECOND -f Dockerfile.second .
 
+# Create a Docker volume for the second server's database
+docker volume create second_server_db_volume
+
 # Run active iperf3 server container (First Server)
 docker run -d --name $SERVER_NAME \
     --network $NETWORK_NAME \
@@ -51,11 +55,12 @@ docker run -d --name $SERVER_NAME \
     --mac-address $SERVER_MAC \
     $CUSTOM_SERVER_IMAGE_FIRST
 
-# Run idle iperf3 server container (Second Server)
+# Run idle iperf3 server container (Second Server) with the database volume
 docker run -d --name $IDLE_SERVER_NAME \
     --network $NETWORK_NAME \
     --ip $IDLE_SERVER_IP \
     --mac-address $IDLE_SERVER_MAC \
+    -v second_server_db_volume:/app \
     $CUSTOM_SERVER_IMAGE_SECOND
 
 # Wait a moment to ensure the servers start
@@ -121,7 +126,7 @@ docker exec $IDLE_SERVER_NAME sh -c "echo '$PUB_KEY' >> /root/.ssh/authorized_ke
 docker exec $SERVER_NAME sh -c "ssh-keyscan -H $IDLE_SERVER_IP >> /root/.ssh/known_hosts"
 
 # Perform the scp command from the first server to the second server
-docker exec $SERVER_NAME scp ./fake_database.db root@$IDLE_SERVER_IP:./fake_database.db
+docker exec $SERVER_NAME scp ./fake_database.db root@$IDLE_SERVER_IP:/app/fake_database.db
 
 # Stop and remove the first server container
 docker stop $SERVER_NAME
@@ -131,11 +136,12 @@ docker rm $SERVER_NAME
 docker stop $IDLE_SERVER_NAME
 docker rm $IDLE_SERVER_NAME
 
-# Start the second server with the IP and MAC of the first server
+# Start the second server with the IP and MAC of the first server, mounting the same volume
 docker run -d --name $IDLE_SERVER_NAME \
     --network $NETWORK_NAME \
     --ip $SERVER_IP \
     --mac-address $SERVER_MAC \
+    -v second_server_db_volume:/app \
     $CUSTOM_SERVER_IMAGE_SECOND
 
 echo "Server migration complete."
@@ -156,3 +162,4 @@ echo "Cleaning up containers and network..."
 docker stop $CLIENT_NAME $IDLE_SERVER_NAME
 docker rm $CLIENT_NAME $IDLE_SERVER_NAME
 docker network rm $NETWORK_NAME
+docker volume rm second_server_db_volume
