@@ -20,6 +20,9 @@ IDLE_SERVER_NAME=iperf-server2
 IDLE_SERVER_IP=172.25.0.4
 IDLE_SERVER_MAC=02:42:ac:19:00:04
 
+# Define downtime log file
+DOWNTIME_LOG=logs/downtime_log.txt
+
 # Clean up any existing containers and network
 echo "Cleaning up existing containers and network..."
 docker rm -f $CLIENT_NAME $SERVER_NAME $IDLE_SERVER_NAME 2>/dev/null
@@ -55,27 +58,43 @@ docker run -d --name $IDLE_SERVER_NAME \
 # Wait a moment to ensure the servers start
 sleep 2
 
-# Run iperf3 client container with reconnect logic
+# Run iperf3 client container with reconnect logic and downtime measurement
 docker run -d --name $CLIENT_NAME \
     --network $NETWORK_NAME \
     --ip $CLIENT_IP \
     --mac-address $CLIENT_MAC \
     -e SERVER_IP=$SERVER_IP \
+    -v $(pwd)/logs:/logs \
     --entrypoint /bin/sh \
     networkstatic/iperf3 \
     -c "END_TIME=\$((\$(date +%s) + 120)); \
+        connected=true; \
         while [ \$(date +%s) -lt \$END_TIME ]; do \
             echo \"Starting iperf3 client at \$(date)\"; \
             iperf3 -c \$SERVER_IP -u -b 1M -t 10 -i 5 --timestamps; \
+            EXIT_CODE=\$?; \
+            if [ \$EXIT_CODE -ne 0 ]; then \
+                if [ \"\$connected\" = true ]; then \
+                    DISCONNECT_TIME=\$(date +%s); \
+                    echo \"Disconnected at \$(date)\" >> /logs/downtime_log.txt; \
+                    connected=false; \
+                fi; \
+            else \
+                if [ \"\$connected\" = false ]; then \
+                    RECONNECT_TIME=\$(date +%s); \
+                    DOWNTIME=\$((RECONNECT_TIME - DISCONNECT_TIME)); \
+                    echo \"Reconnected at \$(date) after \$DOWNTIME seconds of downtime\" >> /logs/downtime_log.txt; \
+                    connected=true; \
+                fi; \
+            fi; \
             echo \"iperf3 client ended at \$(date)\"; \
             sleep 1; \
-        done"
+        done; \
+        if [ \"\$connected\" = false ]; then \
+            echo \"Client did not reconnect before the end of the test.\" >> /logs/downtime_log.txt; \
+        fi"
 
 echo "iperf3 servers and client are running."
-
-# Test connectivity from client to server
-echo "Testing connectivity from client to server..."
-docker exec $CLIENT_NAME ping -c 4 $SERVER_IP
 
 # Allow the test to run for 30 seconds before migration
 sleep 30
