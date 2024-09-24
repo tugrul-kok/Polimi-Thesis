@@ -20,40 +20,52 @@ IDLE_SERVER_NAME=iperf-server2
 IDLE_SERVER_IP=172.25.0.4
 IDLE_SERVER_MAC=02:42:ac:19:00:04
 
+# Custom Docker image with the fake database file
+CUSTOM_SERVER_IMAGE=custom_iperf_server:latest
+
+# Define directories for database files
+DB_HOST_DIR=$(pwd)/db_files
+DB_HOST_DIR_SECOND_SERVER=$(pwd)/db_files_second_server
+
 # Define downtime log file
 DOWNTIME_LOG=logs/downtime_log.txt
 
-# Clean up any existing containers and network
-echo "Cleaning up existing containers and network..."
+# Clean up any existing containers, network, and directories
+echo "Cleaning up existing containers, network, and directories..."
 docker rm -f $CLIENT_NAME $SERVER_NAME $IDLE_SERVER_NAME 2>/dev/null
 docker network rm $NETWORK_NAME 2>/dev/null
-
-# Remove old logs
 rm -rf logs
+rm -rf db_files
+rm -rf db_files_second_server
+
+# Build custom Docker image for the server with the fake database
+echo "Building custom Docker image with the fake database..."
+docker build -t $CUSTOM_SERVER_IMAGE ./iperf_server_with_db
+
+# Create directories for database files
+mkdir -p $DB_HOST_DIR
+mkdir -p $DB_HOST_DIR_SECOND_SERVER
 
 # Create Docker network
 docker network create --subnet=$SUBNET --gateway=$GATEWAY $NETWORK_NAME
 
-# Create a directory for logs if it doesn't exist
+# Create a directory for logs
 mkdir -p logs
 
-# Run active iperf3 server container (First Server)
+# Run active iperf3 server container (First Server) with fake database
 docker run -d --name $SERVER_NAME \
     --network $NETWORK_NAME \
     --ip $SERVER_IP \
     --mac-address $SERVER_MAC \
-    --entrypoint /bin/sh \
-    networkstatic/iperf3 \
-    -c "iperf3 -s"
+    $CUSTOM_SERVER_IMAGE
 
-# Run idle iperf3 server container (Second Server)
+# Run idle iperf3 server container (Second Server) without the database
 docker run -d --name $IDLE_SERVER_NAME \
     --network $NETWORK_NAME \
     --ip $IDLE_SERVER_IP \
     --mac-address $IDLE_SERVER_MAC \
-    --entrypoint /bin/sh \
     networkstatic/iperf3 \
-    -c "iperf3 -s"
+    iperf3 -s
 
 # Wait a moment to ensure the servers start
 sleep 2
@@ -101,8 +113,8 @@ sleep 30
 
 echo "Migrating the server from $SERVER_NAME to $IDLE_SERVER_NAME..."
 
-# Save logs of the first server before stopping it
-docker logs $SERVER_NAME > logs/server_log_before_migration.txt
+# Copy the database file from the first server container to the host
+docker cp $SERVER_NAME:/app/fake_database.db $DB_HOST_DIR/fake_database.db
 
 # Stop and remove the first server container
 docker stop $SERVER_NAME
@@ -112,14 +124,16 @@ docker rm $SERVER_NAME
 docker stop $IDLE_SERVER_NAME
 docker rm $IDLE_SERVER_NAME
 
-# Start the second server with the IP and MAC of the first server
+# Copy the database file to the second server's directory
+cp $DB_HOST_DIR/fake_database.db $DB_HOST_DIR_SECOND_SERVER/
+
+# Start the second server with the IP and MAC of the first server, with its own database volume
 docker run -d --name $IDLE_SERVER_NAME \
     --network $NETWORK_NAME \
     --ip $SERVER_IP \
     --mac-address $SERVER_MAC \
-    --entrypoint /bin/sh \
-    networkstatic/iperf3 \
-    -c "iperf3 -s"
+    -v $DB_HOST_DIR_SECOND_SERVER:/app \
+    $CUSTOM_SERVER_IMAGE
 
 echo "Server migration complete."
 
