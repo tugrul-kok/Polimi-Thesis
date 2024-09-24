@@ -20,12 +20,9 @@ IDLE_SERVER_NAME=iperf-server2
 IDLE_SERVER_IP=172.25.0.4
 IDLE_SERVER_MAC=02:42:ac:19:00:04
 
-# Custom Docker image with the fake database file
-CUSTOM_SERVER_IMAGE=custom_iperf_server:latest
-
-# Define directories for database files
-DB_HOST_DIR=$(pwd)/db_files
-DB_HOST_DIR_SECOND_SERVER=$(pwd)/db_files_second_server
+# Custom Docker images
+CUSTOM_SERVER_IMAGE_FIRST=custom_iperf_server_first
+CUSTOM_SERVER_IMAGE_SECOND=custom_iperf_server_second
 
 # Define downtime log file
 DOWNTIME_LOG=logs/downtime_log.txt
@@ -35,16 +32,6 @@ echo "Cleaning up existing containers, network, and directories..."
 docker rm -f $CLIENT_NAME $SERVER_NAME $IDLE_SERVER_NAME 2>/dev/null
 docker network rm $NETWORK_NAME 2>/dev/null
 rm -rf logs
-rm -rf db_files
-rm -rf db_files_second_server
-
-# Build custom Docker image for the server with the fake database
-echo "Building custom Docker image with the fake database..."
-docker build -t $CUSTOM_SERVER_IMAGE ./iperf_server_with_db
-
-# Create directories for database files
-mkdir -p $DB_HOST_DIR
-mkdir -p $DB_HOST_DIR_SECOND_SERVER
 
 # Create Docker network
 docker network create --subnet=$SUBNET --gateway=$GATEWAY $NETWORK_NAME
@@ -52,23 +39,27 @@ docker network create --subnet=$SUBNET --gateway=$GATEWAY $NETWORK_NAME
 # Create a directory for logs
 mkdir -p logs
 
-# Run active iperf3 server container (First Server) with fake database
+# Build custom Docker images
+echo "Building custom Docker images..."
+docker build -t $CUSTOM_SERVER_IMAGE_FIRST -f Dockerfile.first .
+docker build -t $CUSTOM_SERVER_IMAGE_SECOND -f Dockerfile.second .
+
+# Run active iperf3 server container (First Server)
 docker run -d --name $SERVER_NAME \
     --network $NETWORK_NAME \
     --ip $SERVER_IP \
     --mac-address $SERVER_MAC \
-    $CUSTOM_SERVER_IMAGE
+    $CUSTOM_SERVER_IMAGE_FIRST
 
-# Run idle iperf3 server container (Second Server) without the database
+# Run idle iperf3 server container (Second Server)
 docker run -d --name $IDLE_SERVER_NAME \
     --network $NETWORK_NAME \
     --ip $IDLE_SERVER_IP \
     --mac-address $IDLE_SERVER_MAC \
-    networkstatic/iperf3 \
-    iperf3 -s
+    $CUSTOM_SERVER_IMAGE_SECOND
 
 # Wait a moment to ensure the servers start
-sleep 2
+sleep 5
 
 # Run iperf3 client container with reconnect logic and downtime measurement
 docker run -d --name $CLIENT_NAME \
@@ -78,12 +69,13 @@ docker run -d --name $CLIENT_NAME \
     -e SERVER_IP=$SERVER_IP \
     -v $(pwd)/logs:/logs \
     --entrypoint /bin/sh \
-    networkstatic/iperf3 \
-    -c "END_TIME=\$((\$(date +%s) + 120)); \
+    ubuntu:20.04 \
+    -c "apt-get update && apt-get install -y iperf3 && \
+        END_TIME=\$((\$(date +%s) + 120)); \
         connected=true; \
         while [ \$(date +%s) -lt \$END_TIME ]; do \
             echo \"Starting iperf3 client at \$(date)\"; \
-            iperf3 -c \$SERVER_IP -u -b 1M -t 10 -i 5 --timestamps; \
+            iperf3 -c \$SERVER_IP -u -b 1M -t 10 -i 5; \
             EXIT_CODE=\$?; \
             if [ \$EXIT_CODE -ne 0 ]; then \
                 if [ \"\$connected\" = true ]; then \
@@ -113,8 +105,23 @@ sleep 30
 
 echo "Migrating the server from $SERVER_NAME to $IDLE_SERVER_NAME..."
 
-# Copy the database file from the first server container to the host
-docker cp $SERVER_NAME:/app/fake_database.db $DB_HOST_DIR/fake_database.db
+# Save logs of the first server before stopping it
+docker logs $SERVER_NAME > logs/server_log_before_migration.txt
+
+# Copy the database file from the first server to the second server using scp
+echo "Copying database file from $SERVER_NAME to $IDLE_SERVER_NAME over the network..."
+
+# Copy SSH key from the first server to the second server to enable passwordless SSH
+docker exec $SERVER_NAME ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
+PUB_KEY=$(docker exec $SERVER_NAME cat /root/.ssh/id_rsa.pub)
+docker exec $IDLE_SERVER_NAME mkdir -p /root/.ssh
+docker exec $IDLE_SERVER_NAME sh -c "echo '$PUB_KEY' >> /root/.ssh/authorized_keys"
+
+# Update known_hosts in the first server to avoid SSH prompts
+docker exec $SERVER_NAME sh -c "ssh-keyscan -H $IDLE_SERVER_IP >> /root/.ssh/known_hosts"
+
+# Perform the scp command from the first server to the second server
+docker exec $SERVER_NAME scp ./fake_database.db root@$IDLE_SERVER_IP:./fake_database.db
 
 # Stop and remove the first server container
 docker stop $SERVER_NAME
@@ -124,16 +131,12 @@ docker rm $SERVER_NAME
 docker stop $IDLE_SERVER_NAME
 docker rm $IDLE_SERVER_NAME
 
-# Copy the database file to the second server's directory
-cp $DB_HOST_DIR/fake_database.db $DB_HOST_DIR_SECOND_SERVER/
-
-# Start the second server with the IP and MAC of the first server, with its own database volume
+# Start the second server with the IP and MAC of the first server
 docker run -d --name $IDLE_SERVER_NAME \
     --network $NETWORK_NAME \
     --ip $SERVER_IP \
     --mac-address $SERVER_MAC \
-    -v $DB_HOST_DIR_SECOND_SERVER:/app \
-    $CUSTOM_SERVER_IMAGE
+    $CUSTOM_SERVER_IMAGE_SECOND
 
 echo "Server migration complete."
 

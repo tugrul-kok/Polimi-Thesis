@@ -1,23 +1,66 @@
-mkdir iperf_server_with_db
-cd iperf_server_with_db
 
-# Add these to a Dockerfile
-FROM networkstatic/iperf3
+# Add these to a Dockerfile.first
 
-# Set the working directory
-WORKDIR /app
+
+FROM ubuntu:20.04
+
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y iperf3 openssh-server openssh-client && \
+    mkdir /var/run/sshd
+
+# Set root password (use 'root' for simplicity)
+RUN echo 'root:root' | chpasswd
+
+# Set up SSH keys
+RUN ssh-keygen -A
 
 # Copy the fake database file into the image
-COPY fake_database.db /app/fake_database.db
+COPY fake_database.db ./fake_database.db
 
-# Expose iperf3 server port
-EXPOSE 5201
+# Copy the start script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
-# Start the iperf3 server
-ENTRYPOINT ["iperf3", "-s"]
+# Expose SSH and iperf3 ports
+EXPOSE 22 5201
+
+# Start SSH and iperf3 server
+CMD ["/start.sh"]
+
+
+# Add these to a Dockerfile.second
+
+FROM ubuntu:20.04
+
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y iperf3 openssh-server openssh-client && \
+    mkdir /var/run/sshd
+
+# Set root password (use 'root' for simplicity)
+RUN echo 'root:root' | chpasswd
+
+# Set up SSH keys
+RUN ssh-keygen -A
+
+# Copy the start script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Expose SSH and iperf3 ports
+EXPOSE 22 5201
+
+# Start SSH and iperf3 server
+CMD ["/start.sh"]
 
 
 
 dd if=/dev/urandom of=fake_database.db bs=1M count=5
-docker build -t custom_iperf_server:latest .
+
+# Build the first server image
+docker build -t custom_iperf_server_first -f Dockerfile.first .
+
+# Build the second server image
+docker build -t custom_iperf_server_second -f Dockerfile.second .
 

@@ -1,143 +1,191 @@
-Starting iperf3 client at Tue Sep 24 20:42:11 UTC 2024
-Tue Sep 24 20:42:11 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:42:11 2024 [  5] local 172.25.0.3 port 38136 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:42:16 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:42:16 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:42:21 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:42:21 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:42:21 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:42:21 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:42:21 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.009 ms  0/864 (0%)  receiver
-Tue Sep 24 20:42:21 2024 
-Tue Sep 24 20:42:21 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:42:21 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:42:22 UTC 2024
-Tue Sep 24 20:42:22 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:42:22 2024 [  5] local 172.25.0.3 port 60578 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:42:27 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:42:27 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:42:32 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:42:32 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:42:32 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:42:32 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:42:32 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.041 ms  0/864 (0%)  receiver
-Tue Sep 24 20:42:32 2024 
-Tue Sep 24 20:42:32 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:42:32 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:42:33 UTC 2024
-Tue Sep 24 20:42:33 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:42:33 2024 [  5] local 172.25.0.3 port 59629 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:42:38 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:42:38 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:42:41 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:42:41 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:42:41 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:42:41 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:42:41 2024 [  5]   0.00-5.00   sec   991 KBytes  1.62 Mbits/sec  0.000 ms  0/701 (0%)  sender
-Tue Sep 24 20:42:41 2024 [  5]   0.00-5.00   sec  0.00 Bytes  0.00 bits/sec  0.000 ms  0/0 (0%)  receiver
-iperf3 client ended at Tue Sep 24 20:42:41 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:42:42 UTC 2024
-Tue Sep 24 20:42:42 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:42:42 2024 [  5] local 172.25.0.3 port 42997 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:42:47 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:42:47 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:42:52 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:42:52 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:42:52 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:42:52 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:42:52 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.014 ms  0/864 (0%)  receiver
-Tue Sep 24 20:42:52 2024 
-Tue Sep 24 20:42:52 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:42:52 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:42:53 UTC 2024
-Tue Sep 24 20:42:53 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:42:53 2024 [  5] local 172.25.0.3 port 55194 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:42:58 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:42:58 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:03 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:03 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:43:03 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:43:03 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:43:03 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.045 ms  0/864 (0%)  receiver
-Tue Sep 24 20:43:03 2024 
-Tue Sep 24 20:43:03 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:43:03 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:43:04 UTC 2024
-Tue Sep 24 20:43:04 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:43:04 2024 [  5] local 172.25.0.3 port 46819 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:43:09 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:43:09 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:14 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:14 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:43:14 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:43:14 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:43:14 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.023 ms  0/864 (0%)  receiver
-Tue Sep 24 20:43:14 2024 
-Tue Sep 24 20:43:14 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:43:14 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:43:15 UTC 2024
-Tue Sep 24 20:43:15 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:43:15 2024 [  5] local 172.25.0.3 port 51778 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:43:20 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:43:20 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:25 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:25 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:43:25 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:43:25 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:43:25 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.018 ms  0/864 (0%)  receiver
-Tue Sep 24 20:43:25 2024 
-Tue Sep 24 20:43:25 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:43:25 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:43:26 UTC 2024
-Tue Sep 24 20:43:26 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:43:26 2024 [  5] local 172.25.0.3 port 53250 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:43:31 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:43:31 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:36 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:36 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:43:36 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:43:36 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:43:36 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.016 ms  0/864 (0%)  receiver
-Tue Sep 24 20:43:36 2024 
-Tue Sep 24 20:43:36 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:43:36 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:43:37 UTC 2024
-Tue Sep 24 20:43:37 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:43:37 2024 [  5] local 172.25.0.3 port 51698 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:43:42 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:43:42 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:47 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:47 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:43:47 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:43:47 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:43:47 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.004 ms  0/864 (0%)  receiver
-Tue Sep 24 20:43:47 2024 
-Tue Sep 24 20:43:47 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:43:47 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:43:48 UTC 2024
-Tue Sep 24 20:43:48 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:43:48 2024 [  5] local 172.25.0.3 port 53804 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:43:53 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:43:53 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:58 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:43:58 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:43:58 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:43:58 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:43:58 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.011 ms  0/864 (0%)  receiver
-Tue Sep 24 20:43:58 2024 
-Tue Sep 24 20:43:58 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:43:58 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:43:59 UTC 2024
-Tue Sep 24 20:43:59 2024 Connecting to host 172.25.0.2, port 5201
-Tue Sep 24 20:43:59 2024 [  5] local 172.25.0.3 port 38704 connected to 172.25.0.2 port 5201
-Tue Sep 24 20:44:04 2024 [ ID] Interval           Transfer     Bitrate         Total Datagrams
-Tue Sep 24 20:44:04 2024 [  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:44:09 2024 [  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
-Tue Sep 24 20:44:09 2024 - - - - - - - - - - - - - - - - - - - - - - - - -
-Tue Sep 24 20:44:09 2024 [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
-Tue Sep 24 20:44:09 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
-Tue Sep 24 20:44:09 2024 [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.008 ms  0/864 (0%)  receiver
-Tue Sep 24 20:44:09 2024 
-Tue Sep 24 20:44:09 2024 iperf Done.
-iperf3 client ended at Tue Sep 24 20:44:09 UTC 2024
-Starting iperf3 client at Tue Sep 24 20:44:10 UTC 2024
+Get:1 http://ports.ubuntu.com/ubuntu-ports focal InRelease [265 kB]
+Get:2 http://ports.ubuntu.com/ubuntu-ports focal-updates InRelease [128 kB]
+Get:3 http://ports.ubuntu.com/ubuntu-ports focal-backports InRelease [128 kB]
+Get:4 http://ports.ubuntu.com/ubuntu-ports focal-security InRelease [128 kB]
+Get:5 http://ports.ubuntu.com/ubuntu-ports focal/restricted arm64 Packages [1317 B]
+Get:6 http://ports.ubuntu.com/ubuntu-ports focal/multiverse arm64 Packages [139 kB]
+Get:7 http://ports.ubuntu.com/ubuntu-ports focal/universe arm64 Packages [11.1 MB]
+Get:8 http://ports.ubuntu.com/ubuntu-ports focal/main arm64 Packages [1234 kB]
+Get:9 http://ports.ubuntu.com/ubuntu-ports focal-updates/multiverse arm64 Packages [12.0 kB]
+Get:10 http://ports.ubuntu.com/ubuntu-ports focal-updates/main arm64 Packages [3438 kB]
+Get:11 http://ports.ubuntu.com/ubuntu-ports focal-updates/restricted arm64 Packages [59.4 kB]
+Get:12 http://ports.ubuntu.com/ubuntu-ports focal-updates/universe arm64 Packages [1461 kB]
+Get:13 http://ports.ubuntu.com/ubuntu-ports focal-backports/main arm64 Packages [54.8 kB]
+Get:14 http://ports.ubuntu.com/ubuntu-ports focal-backports/universe arm64 Packages [27.8 kB]
+Get:15 http://ports.ubuntu.com/ubuntu-ports focal-security/multiverse arm64 Packages [5924 B]
+Get:16 http://ports.ubuntu.com/ubuntu-ports focal-security/universe arm64 Packages [1174 kB]
+Get:17 http://ports.ubuntu.com/ubuntu-ports focal-security/main arm64 Packages [3063 kB]
+Get:18 http://ports.ubuntu.com/ubuntu-ports focal-security/restricted arm64 Packages [59.1 kB]
+Fetched 22.5 MB in 12s (1955 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libiperf0 libsctp1 libssl1.1
+Suggested packages:
+  lksctp-tools
+The following NEW packages will be installed:
+  iperf3 libiperf0 libsctp1 libssl1.1
+0 upgraded, 4 newly installed, 0 to remove and 2 not upgraded.
+Need to get 1247 kB of archives.
+After this operation, 4025 kB of additional disk space will be used.
+Get:1 http://ports.ubuntu.com/ubuntu-ports focal-updates/main arm64 libssl1.1 arm64 1.1.1f-1ubuntu2.23 [1159 kB]
+Get:2 http://ports.ubuntu.com/ubuntu-ports focal/main arm64 libsctp1 arm64 1.0.18+dfsg-1 [7908 B]
+Get:3 http://ports.ubuntu.com/ubuntu-ports focal/universe arm64 libiperf0 arm64 3.7-3 [65.9 kB]
+Get:4 http://ports.ubuntu.com/ubuntu-ports focal/universe arm64 iperf3 arm64 3.7-3 [14.0 kB]
+Fetched 1247 kB in 2s (818 kB/s)
+Selecting previously unselected package libssl1.1:arm64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4117 files and directories currently installed.)
+Preparing to unpack .../libssl1.1_1.1.1f-1ubuntu2.23_arm64.deb ...
+Unpacking libssl1.1:arm64 (1.1.1f-1ubuntu2.23) ...
+Selecting previously unselected package libsctp1:arm64.
+Preparing to unpack .../libsctp1_1.0.18+dfsg-1_arm64.deb ...
+Unpacking libsctp1:arm64 (1.0.18+dfsg-1) ...
+Selecting previously unselected package libiperf0:arm64.
+Preparing to unpack .../libiperf0_3.7-3_arm64.deb ...
+Unpacking libiperf0:arm64 (3.7-3) ...
+Selecting previously unselected package iperf3.
+Preparing to unpack .../iperf3_3.7-3_arm64.deb ...
+Unpacking iperf3 (3.7-3) ...
+Setting up libssl1.1:arm64 (1.1.1f-1ubuntu2.23) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/aarch64-linux-gnu/perl/5.30.0 /usr/local/share/perl/5.30.0 /usr/lib/aarch64-linux-gnu/perl5/5.30 /usr/share/perl5 /usr/lib/aarch64-linux-gnu/perl/5.30 /usr/share/perl/5.30 /usr/local/lib/site_perl /usr/lib/aarch64-linux-gnu/perl-base) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: falling back to frontend: Teletype
+Setting up libsctp1:arm64 (1.0.18+dfsg-1) ...
+Setting up libiperf0:arm64 (3.7-3) ...
+Setting up iperf3 (3.7-3) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.16) ...
+Starting iperf3 client at Tue Sep 24 21:24:26 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 55264 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+[  5]   0.00-10.04  sec  1.19 MBytes   997 Kbits/sec  0.002 ms  0/864 (0%)  receiver
+
+iperf Done.
+iperf3 client ended at Tue Sep 24 21:24:36 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:24:37 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 41287 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-5.00   sec   663 KBytes  1.09 Mbits/sec  0.000 ms  0/469 (0%)  sender
+[  5]   0.00-5.00   sec  0.00 Bytes  0.00 bits/sec  0.000 ms  0/0 (0%)  receiver
+iperf3 client ended at Tue Sep 24 21:24:43 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:24:44 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 54878 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+[  5]   0.00-10.04  sec  1.19 MBytes   997 Kbits/sec  0.003 ms  0/864 (0%)  receiver
+
+iperf Done.
+iperf3 client ended at Tue Sep 24 21:24:54 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:24:55 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 45137 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+[  5]   0.00-10.04  sec  1.19 MBytes   997 Kbits/sec  0.005 ms  0/864 (0%)  receiver
+
+iperf Done.
+iperf3 client ended at Tue Sep 24 21:25:05 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:25:06 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 55656 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+[  5]   0.00-10.04  sec  1.19 MBytes   997 Kbits/sec  0.038 ms  0/864 (0%)  receiver
+
+iperf Done.
+iperf3 client ended at Tue Sep 24 21:25:16 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:25:17 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 41213 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+[  5]   0.00-10.04  sec  1.19 MBytes   997 Kbits/sec  0.036 ms  0/864 (0%)  receiver
+
+iperf Done.
+iperf3 client ended at Tue Sep 24 21:25:27 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:25:28 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 32939 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+[  5]   0.00-10.04  sec  1.19 MBytes   996 Kbits/sec  0.034 ms  0/864 (0%)  receiver
+
+iperf Done.
+iperf3 client ended at Tue Sep 24 21:25:39 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:25:40 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 44002 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+[  5]   0.00-10.04  sec  1.19 MBytes   997 Kbits/sec  0.031 ms  0/864 (0%)  receiver
+
+iperf Done.
+iperf3 client ended at Tue Sep 24 21:25:50 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:25:51 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 55847 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+[  5]   0.00-10.04  sec  1.19 MBytes   997 Kbits/sec  0.006 ms  0/864 (0%)  receiver
+
+iperf Done.
+iperf3 client ended at Tue Sep 24 21:26:01 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:26:02 UTC 2024
+Connecting to host 172.25.0.2, port 5201
+[  5] local 172.25.0.3 port 57930 connected to 172.25.0.2 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec   611 KBytes  1.00 Mbits/sec  432  
+[  5]   5.00-10.00  sec   611 KBytes  1.00 Mbits/sec  432  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+[  5]   0.00-10.05  sec  1.19 MBytes   996 Kbits/sec  0.005 ms  0/864 (0%)  receiver
+
+iperf Done.
+iperf3 client ended at Tue Sep 24 21:26:12 UTC 2024
+Starting iperf3 client at Tue Sep 24 21:26:13 UTC 2024

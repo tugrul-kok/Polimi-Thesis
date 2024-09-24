@@ -1,0 +1,25 @@
+FROM ubuntu:20.04
+
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y iperf3 openssh-server openssh-client && \
+    mkdir /var/run/sshd
+
+# Set root password (use 'root' for simplicity)
+RUN echo 'root:root' | chpasswd
+
+# Set up SSH keys
+RUN ssh-keygen -A
+
+# Copy the fake database file into the image
+COPY fake_database.db ./fake_database.db
+
+# Copy the start script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Expose SSH and iperf3 ports
+EXPOSE 22 5201
+
+# Start SSH and iperf3 server
+CMD ["/start.sh"]
