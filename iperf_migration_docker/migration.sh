@@ -23,6 +23,7 @@ IDLE_SERVER_MAC=02:42:ac:19:00:04
 # Custom Docker images
 CUSTOM_SERVER_IMAGE_FIRST=custom_iperf_server_first
 CUSTOM_SERVER_IMAGE_SECOND=custom_iperf_server_second
+CUSTOM_CLIENT_IMAGE=custom_iperf_client
 
 # Define downtime log file
 DOWNTIME_LOG=logs/downtime_log.txt
@@ -44,6 +45,7 @@ mkdir -p logs
 echo "Building custom Docker images..."
 docker build -t $CUSTOM_SERVER_IMAGE_FIRST -f Dockerfile.first .
 docker build -t $CUSTOM_SERVER_IMAGE_SECOND -f Dockerfile.second .
+docker build -t $CUSTOM_CLIENT_IMAGE -f Dockerfile.client .
 
 # Create a Docker volume for the second server's database
 docker volume create second_server_db_volume
@@ -73,10 +75,8 @@ docker run -d --name $CLIENT_NAME \
     --mac-address $CLIENT_MAC \
     -e SERVER_IP=$SERVER_IP \
     -v $(pwd)/logs:/logs \
-    --entrypoint /bin/sh \
-    ubuntu:20.04 \
-    -c "apt-get update && apt-get install -y iperf3 && \
-        END_TIME=\$((\$(date +%s) + 120)); \
+    $CUSTOM_CLIENT_IMAGE \
+    -c "END_TIME=\$((\$(date +%s) + 120)); \
         connected=true; \
         while [ \$(date +%s) -lt \$END_TIME ]; do \
             echo \"Starting iperf3 client at \$(date)\"; \

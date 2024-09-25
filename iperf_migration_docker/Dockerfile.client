@@ -1,0 +1,18 @@
+# Dockerfile.client
+
+FROM ubuntu:20.04
+
+# Install iperf3
+RUN apt-get update && \
+    apt-get install -y iperf3 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
+WORKDIR /app
+
+# Copy any necessary scripts or files (if needed)
+# COPY script.sh /app/
+
+# Set the entrypoint to /bin/sh
+ENTRYPOINT ["/bin/sh"]
+
