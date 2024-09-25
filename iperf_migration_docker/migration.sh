@@ -111,7 +111,7 @@ sleep 30
 echo "Migrating the server from $SERVER_NAME to $IDLE_SERVER_NAME..."
 
 # Save logs of the first server before stopping it
-docker logs $SERVER_NAME > logs/server_log_before_migration.txt
+docker logs  --timestamps $SERVER_NAME > logs/server_log_before_migration.txt
 
 # Copy the database file from the first server to the second server using scp
 echo "Copying database file from $SERVER_NAME to $IDLE_SERVER_NAME over the network..."
@@ -150,10 +150,10 @@ echo "Server migration complete."
 sleep 95
 
 # Save logs of the second server after migration
-docker logs $IDLE_SERVER_NAME > logs/server_log_after_migration.txt
+docker logs --timestamps $IDLE_SERVER_NAME > logs/server_log_after_migration.txt
 
 # Save client logs
-docker logs $CLIENT_NAME > logs/client_log.txt
+docker logs --timestamps $CLIENT_NAME > logs/client_log.txt
 
 echo "Logs are stored in the 'logs' directory."
 
