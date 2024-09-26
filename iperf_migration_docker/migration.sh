@@ -3,6 +3,9 @@
 # Ensure 'bc' is installed (not needed if using integer arithmetic)
 # Ensure 'sudo' is not required (assuming you have permissions)
 
+DB_SIZE=7
+DB_SUFFIX=1M
+
 # Define network parameters
 NETWORK_NAME=iperf-net
 SUBNET=172.25.0.0/16
@@ -30,7 +33,8 @@ CUSTOM_CLIENT_IMAGE=custom_iperf_client
 
 # Define downtime log file
 DOWNTIME_LOG=logs/downtime_log.txt
-
+SERVER_BW_LIMIT=1000kbps
+IDLE_SERVER_BW_LIMIT=1000kbps
 # Function to limit bandwidth inside a container
 limit_bandwidth() {
     CONTAINER_NAME=$1
@@ -54,6 +58,10 @@ docker rm -f $CLIENT_NAME $SERVER_NAME $IDLE_SERVER_NAME 2>/dev/null
 docker network rm $NETWORK_NAME 2>/dev/null
 docker volume rm second_server_db_volume 2>/dev/null
 rm -rf logs
+rm fake_database.db
+
+# Adjust the size of the db file
+dd if=/dev/urandom of=fake_database.db bs=$DB_SUFFIX count=$DB_SIZE
 
 # Create Docker network
 docker network create --subnet=$SUBNET --gateway=$GATEWAY $NETWORK_NAME
@@ -139,10 +147,10 @@ docker logs --timestamps $SERVER_NAME > logs/server_log_before_migration.txt
 START_TIME_SSH_SETUP=$(python3 -c 'import time; print(int(time.time() * 1000))')
 
 # Apply bandwidth limit to the first server's network interface
-limit_bandwidth $SERVER_NAME eth0 100kbps
+limit_bandwidth $SERVER_NAME eth0 $SERVER_BW_LIMIT
 
 # Apply bandwidth limit to the second server's network interface (if needed)
-limit_bandwidth $IDLE_SERVER_NAME eth0 100kbps
+limit_bandwidth $IDLE_SERVER_NAME eth0 $IDLE_SERVER_BW_LIMIT
 
 # Copy the database file from the first server to the second server using scp
 echo "Copying database file from $SERVER_NAME to $IDLE_SERVER_NAME over the network..."
