@@ -1,10 +1,12 @@
 #!/bin/bash
 
-# Ensure 'bc' is installed (not needed if using integer arithmetic)
-# Ensure 'sudo' is not required (assuming you have permissions)
-
+# The size of fake db. For example, the size is 5 MB If DB_SIZE=5, DB_SUFFIX=1M
 DB_SIZE=7
 DB_SUFFIX=1M
+
+# The bandwidth restriction for tthe 
+SERVER_BW_LIMIT=1000kbps
+IDLE_SERVER_BW_LIMIT=1000kbps
 
 # Define network parameters
 NETWORK_NAME=iperf-net
@@ -33,8 +35,7 @@ CUSTOM_CLIENT_IMAGE=custom_iperf_client
 
 # Define downtime log file
 DOWNTIME_LOG=logs/downtime_log.txt
-SERVER_BW_LIMIT=1000kbps
-IDLE_SERVER_BW_LIMIT=1000kbps
+
 # Function to limit bandwidth inside a container
 limit_bandwidth() {
     CONTAINER_NAME=$1
