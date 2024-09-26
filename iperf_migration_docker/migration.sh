@@ -76,11 +76,11 @@ docker run -d --name $CLIENT_NAME \
     -e SERVER_IP=$SERVER_IP \
     -v $(pwd)/logs:/logs \
     $CUSTOM_CLIENT_IMAGE \
-    -c "END_TIME=\$((\$(date +%s) + 120)); \
+    -c "END_TIME=\$((\$(date +%s) + 300)); \
         connected=true; \
         while [ \$(date +%s) -lt \$END_TIME ]; do \
             echo \"Starting iperf3 client at \$(date)\"; \
-            iperf3 -c \$SERVER_IP -u -b 1M -t 10 -i 5; \
+            iperf3 -c \$SERVER_IP -u -b 1M -t 10 -i i; \
             EXIT_CODE=\$?; \
             if [ \$EXIT_CODE -ne 0 ]; then \
                 if [ \"\$connected\" = true ]; then \
@@ -111,7 +111,10 @@ sleep 30
 echo "Migrating the server from $SERVER_NAME to $IDLE_SERVER_NAME..."
 
 # Save logs of the first server before stopping it
-docker logs  --timestamps $SERVER_NAME > logs/server_log_before_migration.txt
+docker logs --timestamps $SERVER_NAME > logs/server_log_before_migration.txt
+
+# Start timing of SSH setup
+START_TIME_SSH_SETUP=$(date +%s.%N)
 
 # Copy the database file from the first server to the second server using scp
 echo "Copying database file from $SERVER_NAME to $IDLE_SERVER_NAME over the network..."
@@ -125,8 +128,31 @@ docker exec $IDLE_SERVER_NAME sh -c "echo '$PUB_KEY' >> /root/.ssh/authorized_ke
 # Update known_hosts in the first server to avoid SSH prompts
 docker exec $SERVER_NAME sh -c "ssh-keyscan -H $IDLE_SERVER_IP >> /root/.ssh/known_hosts"
 
+# End timing of SSH setup
+END_TIME_SSH_SETUP=$(date +%s.%N)
+
+# Calculate duration of SSH setup
+SSH_SETUP_DURATION=$(echo "($END_TIME_SSH_SETUP - $START_TIME_SSH_SETUP)*1000" | bc)
+
+# Output the duration
+echo "SSH setup duration: $SSH_SETUP_DURATION miliseconds"
+echo "SSH setup duration: $SSH_SETUP_DURATION miliseconds" >> logs/timings_log.txt
+
+# Start timing of scp command
+START_TIME_SCP=$(date +%s.%N)
+
 # Perform the scp command from the first server to the second server
 docker exec $SERVER_NAME scp ./fake_database.db root@$IDLE_SERVER_IP:/app/fake_database.db
+
+# End timing of scp command
+END_TIME_SCP=$(date +%s.%N)
+
+# Calculate duration of scp command
+SCP_DURATION=$(echo "($END_TIME_SCP - $START_TIME_SCP)* 1000" | bc)
+
+# Output the duration
+echo "SCP command duration: $SCP_DURATION miliseconds"
+echo "SCP command duration: $SCP_DURATION miliseconds" >> logs/timings_log.txt
 
 # Stop and remove the first server container
 docker stop $SERVER_NAME
@@ -147,7 +173,7 @@ docker run -d --name $IDLE_SERVER_NAME \
 echo "Server migration complete."
 
 # Allow the test to continue for the remaining time
-sleep 95
+sleep 30
 
 # Save logs of the second server after migration
 docker logs --timestamps $IDLE_SERVER_NAME > logs/server_log_after_migration.txt
