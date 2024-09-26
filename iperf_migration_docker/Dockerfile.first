@@ -13,7 +13,7 @@ RUN echo 'root:root' | chpasswd
 RUN ssh-keygen -A
 
 # Copy the fake database file into the image
-COPY fake_database.db ./fake_database.db
+COPY fake_database.db /fake_database.db
 
 # Copy the start script
 COPY start.sh /start.sh

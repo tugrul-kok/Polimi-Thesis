@@ -1,40 +1,84 @@
 #!/bin/bash
 
-# The size of fake db. For example, the size is 5 MB If DB_SIZE=5, DB_SUFFIX=1M
-DB_SIZE=7
-DB_SUFFIX=1M
+# Default values for optional parameters
+NETWORK_NAME="iperf-net"
+SUBNET="172.25.0.0/16"
+GATEWAY="172.25.0.1"
+SERVER_NAME="iperf-server"
+SERVER_IP="172.25.0.2"
+SERVER_MAC="02:42:ac:19:00:02"
+CLIENT_NAME="iperf-client"
+CLIENT_IP="172.25.0.3"
+CLIENT_MAC="02:42:ac:19:00:03"
+IDLE_SERVER_NAME="iperf-server2"
+IDLE_SERVER_IP="172.25.0.4"
+IDLE_SERVER_MAC="02:42:ac:19:00:04"
+CUSTOM_SERVER_IMAGE_FIRST="custom_iperf_server_first"
+CUSTOM_SERVER_IMAGE_SECOND="custom_iperf_server_second"
+CUSTOM_CLIENT_IMAGE="custom_iperf_client"
+DOWNTIME_LOG="logs/downtime_log.txt"
 
-# The bandwidth restriction for tthe 
-SERVER_BW_LIMIT=1000kbps
-IDLE_SERVER_BW_LIMIT=1000kbps
+# Usage function to display help for the script
+usage() {
+    echo "Usage: $0 -s DB_SIZE -x DB_SUFFIX -b SERVER_BW_LIMIT -i IDLE_SERVER_BW_LIMIT [options]"
+    echo "  -s DB_SIZE                Size of the fake database (required)"
+    echo "  -x DB_SUFFIX              Suffix for DB_SIZE (e.g., M for MB) (required)"
+    echo "  -b SERVER_BW_LIMIT        Bandwidth limit for the server (required)"
+    echo "  -i IDLE_SERVER_BW_LIMIT   Bandwidth limit for the idle server (required)"
+    echo "  Optional parameters:"
+    echo "  -n NETWORK_NAME           Docker network name (default: iperf-net)"
+    echo "  -c CLIENT_NAME            Client container name (default: iperf-client)"
+    echo "  -d DOWNTIME_LOG           Path to downtime log (default: logs/downtime_log.txt)"
+    exit 1
+}
 
-# Define network parameters
-NETWORK_NAME=iperf-net
-SUBNET=172.25.0.0/16
-GATEWAY=172.25.0.1
+# Parse command-line arguments
+while getopts "s:x:b:i:n:c:d:" opt; do
+    case "${opt}" in
+        s)
+            DB_SIZE=${OPTARG}
+            ;;
+        x)
+            DB_SUFFIX=${OPTARG}
+            ;;
+        b)
+            SERVER_BW_LIMIT=${OPTARG}
+            ;;
+        i)
+            IDLE_SERVER_BW_LIMIT=${OPTARG}
+            ;;
+        n)
+            NETWORK_NAME=${OPTARG}
+            ;;
+        c)
+            CLIENT_NAME=${OPTARG}
+            ;;
+        d)
+            DOWNTIME_LOG=${OPTARG}
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
 
-# Define active server parameters (First Server)
-SERVER_NAME=iperf-server
-SERVER_IP=172.25.0.2
-SERVER_MAC=02:42:ac:19:00:02
+# Ensure mandatory parameters are provided
+if [ -z "$DB_SIZE" ] || [ -z "$DB_SUFFIX" ] || [ -z "$SERVER_BW_LIMIT" ] || [ -z "$IDLE_SERVER_BW_LIMIT" ]; then
+    echo "Error: Missing required arguments."
+    usage
+fi
 
-# Define client parameters
-CLIENT_NAME=iperf-client
-CLIENT_IP=172.25.0.3
-CLIENT_MAC=02:42:ac:19:00:03
+# Proceed with the rest of the script using the parsed variables
+echo "DB_SIZE: $DB_SIZE"
+echo "DB_SUFFIX: $DB_SUFFIX"
+echo "SERVER_BW_LIMIT: $SERVER_BW_LIMIT"
+echo "IDLE_SERVER_BW_LIMIT: $IDLE_SERVER_BW_LIMIT"
+echo "NETWORK_NAME: $NETWORK_NAME"
+echo "CLIENT_NAME: $CLIENT_NAME"
+echo "DOWNTIME_LOG: $DOWNTIME_LOG"
 
-# Define idle server parameters (Second Server)
-IDLE_SERVER_NAME=iperf-server2
-IDLE_SERVER_IP=172.25.0.4
-IDLE_SERVER_MAC=02:42:ac:19:00:04
+# Rest of your script continues here...
 
-# Custom Docker images
-CUSTOM_SERVER_IMAGE_FIRST=custom_iperf_server_first
-CUSTOM_SERVER_IMAGE_SECOND=custom_iperf_server_second
-CUSTOM_CLIENT_IMAGE=custom_iperf_client
-
-# Define downtime log file
-DOWNTIME_LOG=logs/downtime_log.txt
 
 # Function to limit bandwidth inside a container
 limit_bandwidth() {
@@ -59,11 +103,11 @@ docker rm -f $CLIENT_NAME $SERVER_NAME $IDLE_SERVER_NAME 2>/dev/null
 docker network rm $NETWORK_NAME 2>/dev/null
 docker volume rm second_server_db_volume 2>/dev/null
 rm -rf logs
-rm fake_database.db
+rm fake_database.db 2>/dev/null
 
 # Adjust the size of the db file
 dd if=/dev/urandom of=fake_database.db bs=$DB_SUFFIX count=$DB_SIZE
-
+sleep 1
 # Create Docker network
 docker network create --subnet=$SUBNET --gateway=$GATEWAY $NETWORK_NAME
 
