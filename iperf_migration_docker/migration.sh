@@ -16,7 +16,6 @@ IDLE_SERVER_MAC="02:42:ac:19:00:04"
 CUSTOM_SERVER_IMAGE_FIRST="custom_iperf_server_first"
 CUSTOM_SERVER_IMAGE_SECOND="custom_iperf_server_second"
 CUSTOM_CLIENT_IMAGE="custom_iperf_client"
-DOWNTIME_LOG="logs/downtime_log.txt"
 
 # Usage function to display help for the script
 usage() {
@@ -28,12 +27,11 @@ usage() {
     echo "  Optional parameters:"
     echo "  -n NETWORK_NAME           Docker network name (default: iperf-net)"
     echo "  -c CLIENT_NAME            Client container name (default: iperf-client)"
-    echo "  -d DOWNTIME_LOG           Path to downtime log (default: logs/downtime_log.txt)"
     exit 1
 }
 
 # Parse command-line arguments
-while getopts "s:x:b:i:n:c:d:" opt; do
+while getopts "s:x:b:i:n:c:" opt; do
     case "${opt}" in
         s)
             DB_SIZE=${OPTARG}
@@ -53,9 +51,6 @@ while getopts "s:x:b:i:n:c:d:" opt; do
         c)
             CLIENT_NAME=${OPTARG}
             ;;
-        d)
-            DOWNTIME_LOG=${OPTARG}
-            ;;
         *)
             usage
             ;;
@@ -68,6 +63,11 @@ if [ -z "$DB_SIZE" ] || [ -z "$DB_SUFFIX" ] || [ -z "$SERVER_BW_LIMIT" ] || [ -z
     usage
 fi
 
+# Construct the log directory path based on the provided arguments
+#LOG_DIR="logs/${DB_SIZE}_${DB_SUFFIX}_${SERVER_BW_LIMIT}_${IDLE_SERVER_BW_LIMIT}"
+LOG_DIR="logs/${DB_SIZE}M_${SERVER_BW_LIMIT}_${IDLE_SERVER_BW_LIMIT}"
+mkdir -p $LOG_DIR
+
 # Proceed with the rest of the script using the parsed variables
 echo "DB_SIZE: $DB_SIZE"
 echo "DB_SUFFIX: $DB_SUFFIX"
@@ -75,10 +75,7 @@ echo "SERVER_BW_LIMIT: $SERVER_BW_LIMIT"
 echo "IDLE_SERVER_BW_LIMIT: $IDLE_SERVER_BW_LIMIT"
 echo "NETWORK_NAME: $NETWORK_NAME"
 echo "CLIENT_NAME: $CLIENT_NAME"
-echo "DOWNTIME_LOG: $DOWNTIME_LOG"
-
-# Rest of your script continues here...
-
+echo "Logs directory: $LOG_DIR"
 
 # Function to limit bandwidth inside a container
 limit_bandwidth() {
@@ -102,17 +99,14 @@ echo "Cleaning up existing containers, networks, volumes, and directories..."
 docker rm -f $CLIENT_NAME $SERVER_NAME $IDLE_SERVER_NAME 2>/dev/null
 docker network rm $NETWORK_NAME 2>/dev/null
 docker volume rm second_server_db_volume 2>/dev/null
-rm -rf logs
 rm fake_database.db 2>/dev/null
 
 # Adjust the size of the db file
 dd if=/dev/urandom of=fake_database.db bs=$DB_SUFFIX count=$DB_SIZE
 sleep 1
+
 # Create Docker network
 docker network create --subnet=$SUBNET --gateway=$GATEWAY $NETWORK_NAME
-
-# Create a directory for logs
-mkdir -p logs
 
 # Build custom Docker images
 echo "Building custom Docker images..."
@@ -149,7 +143,7 @@ docker run -d --name $CLIENT_NAME \
     --ip $CLIENT_IP \
     --mac-address $CLIENT_MAC \
     -e SERVER_IP=$SERVER_IP \
-    -v $(pwd)/logs:/logs \
+    -v $(pwd)/$LOG_DIR:/logs \
     $CUSTOM_CLIENT_IMAGE \
     -c "END_TIME=\$((\$(date +%s) + 300)); \
         connected=true; \
@@ -186,7 +180,7 @@ sleep 30
 echo "Migrating the server from $SERVER_NAME to $IDLE_SERVER_NAME..."
 
 # Save logs of the first server before stopping it
-docker logs --timestamps $SERVER_NAME > logs/server_log_before_migration.txt
+docker logs --timestamps $SERVER_NAME > $LOG_DIR/server_log_before_migration.txt
 
 # Start timing of SSH setup in milliseconds
 START_TIME_SSH_SETUP=$(python3 -c 'import time; print(int(time.time() * 1000))')
@@ -217,7 +211,7 @@ SSH_SETUP_DURATION_MS=$(($END_TIME_SSH_SETUP - $START_TIME_SSH_SETUP))
 
 # Output the duration
 echo "SSH setup duration: $SSH_SETUP_DURATION_MS milliseconds"
-echo "SSH setup duration: $SSH_SETUP_DURATION_MS milliseconds" >> logs/timings_log.txt
+echo "SSH setup duration: $SSH_SETUP_DURATION_MS milliseconds" >> $LOG_DIR/timings_log.txt
 
 # Start timing of scp command
 START_TIME_SCP=$(python3 -c 'import time; print(int(time.time() * 1000))')
@@ -233,7 +227,7 @@ SCP_DURATION_MS=$(($END_TIME_SCP - $START_TIME_SCP))
 
 # Output the duration
 echo "SCP command duration: $SCP_DURATION_MS milliseconds"
-echo "SCP command duration: $SCP_DURATION_MS milliseconds" >> logs/timings_log.txt
+echo "SCP command duration: $SCP_DURATION_MS milliseconds" >> $LOG_DIR/timings_log.txt
 
 # Remove bandwidth limits
 remove_bandwidth_limit $SERVER_NAME eth0
@@ -262,12 +256,12 @@ echo "Server migration complete."
 sleep 30
 
 # Save logs of the second server after migration
-docker logs --timestamps $IDLE_SERVER_NAME > logs/server_log_after_migration.txt
+docker logs --timestamps $IDLE_SERVER_NAME > $LOG_DIR/server_log_after_migration.txt
 
 # Save client logs
-docker logs --timestamps $CLIENT_NAME > logs/client_log.txt
+docker logs --timestamps $CLIENT_NAME > $LOG_DIR/client_log.txt
 
-echo "Logs are stored in the 'logs' directory."
+echo "Logs are stored in the '$LOG_DIR' directory."
 
 # Clean up after the test
 echo "Cleaning up containers and network..."

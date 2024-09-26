@@ -8,5 +8,6 @@ IFS=',' read -r -a DB_SIZE_ARRAY <<< "$DB_SIZES"
 
 # Loop over each value in the DB_SIZE_ARRAY
 for DB_SIZE in "${DB_SIZE_ARRAY[@]}"; do
-    ./migration.sh -s DB_SIZE -x 1M -b 1000kbps -i 1000kbps
+    # Ensure the variable is correctly passed by using "$DB_SIZE"
+    ./migration.sh -s "$DB_SIZE" -x 1M -b 10000kbps -i 10000kbps
 done

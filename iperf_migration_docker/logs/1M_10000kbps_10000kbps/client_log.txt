@@ -1,0 +1,104 @@
+2024-09-26T20:01:26.479799626Z Starting iperf3 client at Thu Sep 26 20:01:26 UTC 2024
+2024-09-26T20:01:36.651872756Z Connecting to host 172.25.0.2, port 5201
+2024-09-26T20:01:36.651926298Z [  5] local 172.25.0.3 port 52964 connected to 172.25.0.2 port 5201
+2024-09-26T20:01:36.651937756Z [ ID] Interval           Transfer     Bitrate         Total Datagrams
+2024-09-26T20:01:36.651942006Z [  5]   0.00-1.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:36.651945214Z [  5]   1.00-2.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:36.651948339Z [  5]   2.00-3.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:36.651952006Z [  5]   3.00-4.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:36.651955298Z [  5]   4.00-5.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:36.651958256Z [  5]   5.00-6.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:36.651961214Z [  5]   6.00-7.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:36.651964131Z [  5]   7.00-8.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:01:36.651967089Z [  5]   8.00-9.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:36.651970048Z [  5]   9.00-10.00  sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:36.651978839Z - - - - - - - - - - - - - - - - - - - - - - - - -
+2024-09-26T20:01:36.651982506Z [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+2024-09-26T20:01:36.651985798Z [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+2024-09-26T20:01:36.651988964Z [  5]   0.00-10.04  sec  1.19 MBytes   997 Kbits/sec  0.005 ms  0/864 (0%)  receiver
+2024-09-26T20:01:36.651992089Z 
+2024-09-26T20:01:36.651995631Z iperf Done.
+2024-09-26T20:01:36.653771131Z iperf3 client ended at Thu Sep 26 20:01:36 UTC 2024
+2024-09-26T20:01:37.661406340Z Starting iperf3 client at Thu Sep 26 20:01:37 UTC 2024
+2024-09-26T20:01:47.843421845Z Connecting to host 172.25.0.2, port 5201
+2024-09-26T20:01:47.843473178Z [  5] local 172.25.0.3 port 39677 connected to 172.25.0.2 port 5201
+2024-09-26T20:01:47.843481386Z [ ID] Interval           Transfer     Bitrate         Total Datagrams
+2024-09-26T20:01:47.843485220Z [  5]   0.00-1.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:47.843488761Z [  5]   1.00-2.00   sec   122 KBytes   995 Kbits/sec  86  
+2024-09-26T20:01:47.843492011Z [  5]   2.00-3.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:01:47.843495470Z [  5]   3.00-4.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:47.843498636Z [  5]   4.00-5.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:01:47.843501761Z [  5]   5.00-6.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:47.843504720Z [  5]   6.00-7.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:47.843507803Z [  5]   7.00-8.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:47.843531636Z [  5]   8.00-9.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:47.843535261Z [  5]   9.00-10.00  sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:47.843538345Z - - - - - - - - - - - - - - - - - - - - - - - - -
+2024-09-26T20:01:47.843541553Z [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+2024-09-26T20:01:47.843544720Z [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+2024-09-26T20:01:47.843547928Z [  5]   0.00-10.05  sec  1.19 MBytes   996 Kbits/sec  0.008 ms  0/864 (0%)  receiver
+2024-09-26T20:01:47.843551053Z 
+2024-09-26T20:01:47.843553928Z iperf Done.
+2024-09-26T20:01:47.845291928Z iperf3 client ended at Thu Sep 26 20:01:47 UTC 2024
+2024-09-26T20:01:48.850285470Z Starting iperf3 client at Thu Sep 26 20:01:48 UTC 2024
+2024-09-26T20:01:58.439811085Z Connecting to host 172.25.0.2, port 5201
+2024-09-26T20:01:58.439818710Z [  5] local 172.25.0.3 port 59622 connected to 172.25.0.2 port 5201
+2024-09-26T20:01:58.439825669Z [ ID] Interval           Transfer     Bitrate         Total Datagrams
+2024-09-26T20:01:58.439828335Z [  5]   0.00-1.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:58.439830585Z [  5]   1.00-2.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:58.439832877Z [  5]   2.00-3.00   sec   122 KBytes   995 Kbits/sec  86  
+2024-09-26T20:01:58.439835002Z [  5]   3.00-4.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:58.439837002Z [  5]   4.00-5.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:58.439842794Z [  5]   5.00-6.00   sec   122 KBytes   995 Kbits/sec  86  
+2024-09-26T20:01:58.439847669Z [  5]   6.00-7.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:01:58.439850502Z [  5]   7.00-8.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:01:58.439852002Z [  5]   8.00-9.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:01:58.439853460Z [  5]   8.00-9.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:01:58.439854960Z - - - - - - - - - - - - - - - - - - - - - - - - -
+2024-09-26T20:01:58.439861460Z [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+2024-09-26T20:01:58.439864544Z [  5]   0.00-9.00   sec  1.13 MBytes  1.06 Mbits/sec  0.000 ms  0/820 (0%)  sender
+2024-09-26T20:01:58.439866377Z [  5]   0.00-9.00   sec  0.00 Bytes  0.00 bits/sec  0.000 ms  0/0 (0%)  receiver
+2024-09-26T20:01:58.443259919Z iperf3 client ended at Thu Sep 26 20:01:58 UTC 2024
+2024-09-26T20:01:59.452117961Z Starting iperf3 client at Thu Sep 26 20:01:59 UTC 2024
+2024-09-26T20:02:09.630721841Z Connecting to host 172.25.0.2, port 5201
+2024-09-26T20:02:09.630788757Z [  5] local 172.25.0.3 port 56838 connected to 172.25.0.2 port 5201
+2024-09-26T20:02:09.630824591Z [ ID] Interval           Transfer     Bitrate         Total Datagrams
+2024-09-26T20:02:09.630830882Z [  5]   0.00-1.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:02:09.630834216Z [  5]   1.00-2.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:02:09.630837466Z [  5]   2.00-3.00   sec   122 KBytes   995 Kbits/sec  86  
+2024-09-26T20:02:09.630840382Z [  5]   3.00-4.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:02:09.630844132Z [  5]   4.00-5.00   sec   122 KBytes   995 Kbits/sec  86  
+2024-09-26T20:02:09.630847132Z [  5]   5.00-6.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:02:09.630850049Z [  5]   6.00-7.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:02:09.630853174Z [  5]   7.00-8.00   sec   122 KBytes   995 Kbits/sec  86  
+2024-09-26T20:02:09.630856091Z [  5]   8.00-9.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:02:09.630859049Z [  5]   9.00-10.00  sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:02:09.630862007Z - - - - - - - - - - - - - - - - - - - - - - - - -
+2024-09-26T20:02:09.630865007Z [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+2024-09-26T20:02:09.630868299Z [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+2024-09-26T20:02:09.630871424Z [  5]   0.00-10.04  sec  1.19 MBytes   996 Kbits/sec  0.005 ms  0/864 (0%)  receiver
+2024-09-26T20:02:09.630874549Z 
+2024-09-26T20:02:09.630877382Z iperf Done.
+2024-09-26T20:02:09.635926549Z iperf3 client ended at Thu Sep 26 20:02:09 UTC 2024
+2024-09-26T20:02:10.642134633Z Starting iperf3 client at Thu Sep 26 20:02:10 UTC 2024
+2024-09-26T20:02:20.811253346Z Connecting to host 172.25.0.2, port 5201
+2024-09-26T20:02:20.811305388Z [  5] local 172.25.0.3 port 34913 connected to 172.25.0.2 port 5201
+2024-09-26T20:02:20.811310388Z [ ID] Interval           Transfer     Bitrate         Total Datagrams
+2024-09-26T20:02:20.811314554Z [  5]   0.00-1.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:02:20.811317804Z [  5]   1.00-2.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:02:20.811320846Z [  5]   2.00-3.00   sec   122 KBytes   995 Kbits/sec  86  
+2024-09-26T20:02:20.811323971Z [  5]   3.00-4.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:02:20.811327221Z [  5]   4.00-5.00   sec   122 KBytes   997 Kbits/sec  86  
+2024-09-26T20:02:20.811330179Z [  5]   5.00-6.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:02:20.811333138Z [  5]   6.00-7.00   sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:02:20.811336013Z [  5]   7.00-8.00   sec   122 KBytes   996 Kbits/sec  86  
+2024-09-26T20:02:20.811338929Z [  5]   8.00-9.00   sec   122 KBytes   995 Kbits/sec  86  
+2024-09-26T20:02:20.811341763Z [  5]   9.00-10.00  sec   123 KBytes  1.01 Mbits/sec  87  
+2024-09-26T20:02:20.811364971Z - - - - - - - - - - - - - - - - - - - - - - - - -
+2024-09-26T20:02:20.811368388Z [ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+2024-09-26T20:02:20.811371804Z [  5]   0.00-10.00  sec  1.19 MBytes  1.00 Mbits/sec  0.000 ms  0/864 (0%)  sender
+2024-09-26T20:02:20.811374971Z [  5]   0.00-10.04  sec  1.19 MBytes   997 Kbits/sec  0.013 ms  0/864 (0%)  receiver
+2024-09-26T20:02:20.811378096Z 
+2024-09-26T20:02:20.811380846Z iperf Done.
+2024-09-26T20:02:20.813109388Z iperf3 client ended at Thu Sep 26 20:02:20 UTC 2024
+2024-09-26T20:02:21.817739138Z Starting iperf3 client at Thu Sep 26 20:02:21 UTC 2024
