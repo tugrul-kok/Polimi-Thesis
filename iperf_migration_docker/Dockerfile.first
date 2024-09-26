@@ -2,8 +2,9 @@ FROM ubuntu:20.04
 
 # Install required packages
 RUN apt-get update && \
-    apt-get install -y iperf3 openssh-server openssh-client && \
-    mkdir /var/run/sshd
+    apt-get install -y iperf3 openssh-server openssh-client iproute2 && \
+    mkdir /var/run/sshd && \
+    rm -rf /var/lib/apt/lists/*
 
 # Set root password (use 'root' for simplicity)
 RUN echo 'root:root' | chpasswd

@@ -1,0 +1,2 @@
+SSH setup duration: 631 milliseconds
+SCP command duration: 7640 milliseconds
