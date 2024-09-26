@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Ensure 'bc' is installed (not needed if using integer arithmetic)
+# Ensure 'sudo' is not required (assuming you have permissions)
+
 # Define network parameters
 NETWORK_NAME=iperf-net
 SUBNET=172.25.0.0/16
@@ -28,6 +31,23 @@ CUSTOM_CLIENT_IMAGE=custom_iperf_client
 # Define downtime log file
 DOWNTIME_LOG=logs/downtime_log.txt
 
+# Function to limit bandwidth inside a container
+limit_bandwidth() {
+    CONTAINER_NAME=$1
+    INTERFACE=$2
+    RATE=$3
+    docker exec $CONTAINER_NAME tc qdisc add dev $INTERFACE root tbf rate $RATE latency 50ms burst 1540
+    echo "Applied bandwidth limit of $RATE on $CONTAINER_NAME ($INTERFACE)"
+}
+
+# Function to remove bandwidth limits inside a container
+remove_bandwidth_limit() {
+    CONTAINER_NAME=$1
+    INTERFACE=$2
+    docker exec $CONTAINER_NAME tc qdisc del dev $INTERFACE root
+    echo "Removed bandwidth limit on $CONTAINER_NAME ($INTERFACE)"
+}
+
 # Clean up any existing containers, networks, volumes, and directories
 echo "Cleaning up existing containers, networks, volumes, and directories..."
 docker rm -f $CLIENT_NAME $SERVER_NAME $IDLE_SERVER_NAME 2>/dev/null
@@ -52,6 +72,7 @@ docker volume create second_server_db_volume
 
 # Run active iperf3 server container (First Server)
 docker run -d --name $SERVER_NAME \
+    --cap-add=NET_ADMIN \
     --network $NETWORK_NAME \
     --ip $SERVER_IP \
     --mac-address $SERVER_MAC \
@@ -59,6 +80,7 @@ docker run -d --name $SERVER_NAME \
 
 # Run idle iperf3 server container (Second Server) with the database volume
 docker run -d --name $IDLE_SERVER_NAME \
+    --cap-add=NET_ADMIN \
     --network $NETWORK_NAME \
     --ip $IDLE_SERVER_IP \
     --mac-address $IDLE_SERVER_MAC \
@@ -80,7 +102,7 @@ docker run -d --name $CLIENT_NAME \
         connected=true; \
         while [ \$(date +%s) -lt \$END_TIME ]; do \
             echo \"Starting iperf3 client at \$(date)\"; \
-            iperf3 -c \$SERVER_IP -u -b 1M -t 10 -i i; \
+            iperf3 -c \$SERVER_IP -u -b 1M -t 10 -i 1; \
             EXIT_CODE=\$?; \
             if [ \$EXIT_CODE -ne 0 ]; then \
                 if [ \"\$connected\" = true ]; then \
@@ -113,8 +135,14 @@ echo "Migrating the server from $SERVER_NAME to $IDLE_SERVER_NAME..."
 # Save logs of the first server before stopping it
 docker logs --timestamps $SERVER_NAME > logs/server_log_before_migration.txt
 
-# Start timing of SSH setup
-START_TIME_SSH_SETUP=$(date +%s.%N)
+# Start timing of SSH setup in milliseconds
+START_TIME_SSH_SETUP=$(python3 -c 'import time; print(int(time.time() * 1000))')
+
+# Apply bandwidth limit to the first server's network interface
+limit_bandwidth $SERVER_NAME eth0 100kbps
+
+# Apply bandwidth limit to the second server's network interface (if needed)
+limit_bandwidth $IDLE_SERVER_NAME eth0 100kbps
 
 # Copy the database file from the first server to the second server using scp
 echo "Copying database file from $SERVER_NAME to $IDLE_SERVER_NAME over the network..."
@@ -129,30 +157,34 @@ docker exec $IDLE_SERVER_NAME sh -c "echo '$PUB_KEY' >> /root/.ssh/authorized_ke
 docker exec $SERVER_NAME sh -c "ssh-keyscan -H $IDLE_SERVER_IP >> /root/.ssh/known_hosts"
 
 # End timing of SSH setup
-END_TIME_SSH_SETUP=$(date +%s.%N)
+END_TIME_SSH_SETUP=$(python3 -c 'import time; print(int(time.time() * 1000))')
 
-# Calculate duration of SSH setup
-SSH_SETUP_DURATION=$(echo "($END_TIME_SSH_SETUP - $START_TIME_SSH_SETUP)*1000" | bc)
+# Calculate duration of SSH setup in milliseconds
+SSH_SETUP_DURATION_MS=$(($END_TIME_SSH_SETUP - $START_TIME_SSH_SETUP))
 
 # Output the duration
-echo "SSH setup duration: $SSH_SETUP_DURATION miliseconds"
-echo "SSH setup duration: $SSH_SETUP_DURATION miliseconds" >> logs/timings_log.txt
+echo "SSH setup duration: $SSH_SETUP_DURATION_MS milliseconds"
+echo "SSH setup duration: $SSH_SETUP_DURATION_MS milliseconds" >> logs/timings_log.txt
 
 # Start timing of scp command
-START_TIME_SCP=$(date +%s.%N)
+START_TIME_SCP=$(python3 -c 'import time; print(int(time.time() * 1000))')
 
 # Perform the scp command from the first server to the second server
 docker exec $SERVER_NAME scp ./fake_database.db root@$IDLE_SERVER_IP:/app/fake_database.db
 
 # End timing of scp command
-END_TIME_SCP=$(date +%s.%N)
+END_TIME_SCP=$(python3 -c 'import time; print(int(time.time() * 1000))')
 
-# Calculate duration of scp command
-SCP_DURATION=$(echo "($END_TIME_SCP - $START_TIME_SCP)* 1000" | bc)
+# Calculate duration of scp command in milliseconds
+SCP_DURATION_MS=$(($END_TIME_SCP - $START_TIME_SCP))
 
 # Output the duration
-echo "SCP command duration: $SCP_DURATION miliseconds"
-echo "SCP command duration: $SCP_DURATION miliseconds" >> logs/timings_log.txt
+echo "SCP command duration: $SCP_DURATION_MS milliseconds"
+echo "SCP command duration: $SCP_DURATION_MS milliseconds" >> logs/timings_log.txt
+
+# Remove bandwidth limits
+remove_bandwidth_limit $SERVER_NAME eth0
+remove_bandwidth_limit $IDLE_SERVER_NAME eth0
 
 # Stop and remove the first server container
 docker stop $SERVER_NAME
@@ -164,6 +196,7 @@ docker rm $IDLE_SERVER_NAME
 
 # Start the second server with the IP and MAC of the first server, mounting the same volume
 docker run -d --name $IDLE_SERVER_NAME \
+    --cap-add=NET_ADMIN \
     --network $NETWORK_NAME \
     --ip $SERVER_IP \
     --mac-address $SERVER_MAC \
