@@ -1,0 +1,29 @@
+FROM ubuntu:20.04
+
+# Install required packages with retries for apt-get update
+RUN apt-get update || apt-get update || apt-get update && \
+    apt-get install -y mosquitto mosquitto-clients openssh-server openssh-client iproute2 && \
+    mkdir /var/run/sshd && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set root password (use 'root' for simplicity)
+RUN echo 'root:root' | chpasswd
+
+# Set up SSH keys
+RUN ssh-keygen -A
+
+# Copy the Mosquitto configuration file
+COPY mosquitto.conf /etc/mosquitto/mosquitto.conf
+
+# Create the /tmp/dlt FIFO file to prevent log warnings
+RUN mkfifo /tmp/dlt
+
+# Copy the start script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Expose SSH and Mosquitto broker ports
+EXPOSE 22 1883
+
+# Start SSH and Mosquitto broker
+CMD ["/start.sh"]
