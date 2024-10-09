@@ -1,7 +1,9 @@
+# Dockerfile.broker
+
 FROM ubuntu:20.04
 
-# Install required packages with retries for apt-get update
-RUN apt-get update || apt-get update || apt-get update && \
+# Install required packages
+RUN apt-get update && \
     apt-get install -y mosquitto mosquitto-clients openssh-server openssh-client iproute2 && \
     mkdir /var/run/sshd && \
     rm -rf /var/lib/apt/lists/*
@@ -9,17 +11,18 @@ RUN apt-get update || apt-get update || apt-get update && \
 # Set root password (use 'root' for simplicity)
 RUN echo 'root:root' | chpasswd
 
+# Enable root login over SSH
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
 # Set up SSH keys
 RUN ssh-keygen -A
 
+# Create the necessary directories for Mosquitto persistence and logging
+RUN mkdir -p /mosquitto/data/ && \
+    mkdir -p /mosquitto/log/
+
 # Copy the Mosquitto configuration file
 COPY mosquitto.conf /etc/mosquitto/mosquitto.conf
-
-# Create the /tmp/dlt FIFO file to prevent log warnings
-RUN mkfifo /tmp/dlt
-
-# Copy the fake database file into the image (for Dockerfile.first)
-COPY fake_database.db /fake_database.db
 
 # Copy the start script
 COPY start.sh /start.sh

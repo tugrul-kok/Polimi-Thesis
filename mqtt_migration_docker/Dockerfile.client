@@ -2,17 +2,14 @@
 
 FROM ubuntu:20.04
 
-# Install Mosquitto clients (mosquitto_pub and mosquitto_sub)
+# Install required packages
 RUN apt-get update && \
     apt-get install -y mosquitto-clients && \
     rm -rf /var/lib/apt/lists/*
 
-# Set the working directory
-WORKDIR /app
+# Copy the client script
+COPY client.sh /client.sh
+RUN chmod +x /client.sh
 
-# Copy any necessary scripts or files (if needed)
-# COPY script.sh /app/
-
-# Set the entrypoint to /bin/sh
-ENTRYPOINT ["/bin/sh"]
-
+# Set the entrypoint
+ENTRYPOINT ["/client.sh"]
