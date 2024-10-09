@@ -1,0 +1,3 @@
+mosquitto.db size: 152 bytes
+SSH setup duration: 528 milliseconds
+Copy command duration: 312 milliseconds

@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 
 # Install required packages
 RUN apt-get update && \
-    apt-get install -y mosquitto mosquitto-clients openssh-server openssh-client iproute2 && \
+    apt-get install -y mosquitto mosquitto-clients openssh-server openssh-client iproute2 rsync && \
     mkdir /var/run/sshd && \
     rm -rf /var/lib/apt/lists/*
 

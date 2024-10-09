@@ -1,0 +1,8 @@
+mosquitto.db size: 152 bytes
+SSH setup duration: 541 milliseconds
+sending incremental file list
+mosquitto.db
+
+sent 217 bytes  received 35 bytes  504.00 bytes/sec
+total size is 152  speedup is 0.60
+Copy command duration: 255 milliseconds

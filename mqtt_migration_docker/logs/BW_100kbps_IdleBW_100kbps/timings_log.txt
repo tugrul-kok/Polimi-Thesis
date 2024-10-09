@@ -1,3 +1,0 @@
-mosquitto.db size: 152 bytes
-SSH setup duration: 476 milliseconds
-SCP command duration: 263 milliseconds

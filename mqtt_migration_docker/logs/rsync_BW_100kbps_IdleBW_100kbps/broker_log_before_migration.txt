@@ -1,0 +1,98 @@
+2024-10-09T18:09:25.597350379Z [  700.498202]~DLT~    1~INFO     ~FIFO /tmp/dlt cannot be opened. Retrying later...
+2024-10-09T18:09:25.597383129Z 1728497365: mosquitto version 1.6.9 starting
+2024-10-09T18:09:25.597385879Z 1728497365: Config loaded from /etc/mosquitto/mosquitto.conf.
+2024-10-09T18:09:25.597439754Z 1728497365: Opening ipv4 listen socket on port 1883.
+2024-10-09T18:09:25.597447545Z 1728497365: Opening ipv6 listen socket on port 1883.
+2024-10-09T18:09:30.930501590Z 1728497370: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:30.930620423Z 1728497370: New client connected from 172.25.0.3 as mosq-GeFv1RYQvnhOtMhLea (p2, c1, k60).
+2024-10-09T18:09:30.930966215Z 1728497370: Client mosq-GeFv1RYQvnhOtMhLea disconnected.
+2024-10-09T18:09:30.932823756Z 1728497370: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:30.933396256Z 1728497370: New client connected from 172.25.0.3 as mosq-nOrIK0jbtdRcEdm4xd (p2, c1, k60).
+2024-10-09T18:09:30.933683673Z 1728497370: Client mosq-nOrIK0jbtdRcEdm4xd disconnected.
+2024-10-09T18:09:31.941108382Z 1728497371: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:31.942190757Z 1728497371: New client connected from 172.25.0.3 as mosq-2nblgl8P8AEW8VwbSx (p2, c1, k60).
+2024-10-09T18:09:31.943884965Z 1728497371: Client mosq-2nblgl8P8AEW8VwbSx disconnected.
+2024-10-09T18:09:32.952738757Z 1728497372: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:32.953759924Z 1728497372: New client connected from 172.25.0.3 as mosq-ZMKndTjsOi2dd5GUwQ (p2, c1, k60).
+2024-10-09T18:09:32.956239049Z 1728497372: Client mosq-ZMKndTjsOi2dd5GUwQ disconnected.
+2024-10-09T18:09:33.969056049Z 1728497373: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:33.970010841Z 1728497373: New client connected from 172.25.0.3 as mosq-yYSqwG8bbbBxyrNW6M (p2, c1, k60).
+2024-10-09T18:09:33.972355633Z 1728497373: Client mosq-yYSqwG8bbbBxyrNW6M disconnected.
+2024-10-09T18:09:34.983849092Z 1728497374: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:34.984884008Z 1728497374: New client connected from 172.25.0.3 as mosq-kgJNhpKSpbPWMbVICi (p2, c1, k60).
+2024-10-09T18:09:34.987214717Z 1728497374: Client mosq-kgJNhpKSpbPWMbVICi disconnected.
+2024-10-09T18:09:36.000106134Z 1728497375: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:36.001096759Z 1728497375: New client connected from 172.25.0.3 as mosq-DBmtOdtAupL98D6aR5 (p2, c1, k60).
+2024-10-09T18:09:36.003495759Z 1728497376: Client mosq-DBmtOdtAupL98D6aR5 disconnected.
+2024-10-09T18:09:37.011176301Z 1728497377: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:37.013304051Z 1728497377: New client connected from 172.25.0.3 as mosq-ixtyY9UqCJVYKZXVrT (p2, c1, k60).
+2024-10-09T18:09:37.017140593Z 1728497377: Client mosq-ixtyY9UqCJVYKZXVrT disconnected.
+2024-10-09T18:09:38.030946010Z 1728497378: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:38.031980635Z 1728497378: New client connected from 172.25.0.3 as mosq-LbNlIqrd5CEZX1aEk4 (p2, c1, k60).
+2024-10-09T18:09:38.034406093Z 1728497378: Client mosq-LbNlIqrd5CEZX1aEk4 disconnected.
+2024-10-09T18:09:39.042846510Z 1728497379: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:39.043845885Z 1728497379: New client connected from 172.25.0.3 as mosq-3iGUebZQ6sb9Pb2pAd (p2, c1, k60).
+2024-10-09T18:09:39.046138719Z 1728497379: Client mosq-3iGUebZQ6sb9Pb2pAd disconnected.
+2024-10-09T18:09:40.057651594Z 1728497380: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:40.058656344Z 1728497380: New client connected from 172.25.0.3 as mosq-1eQUvUWUfkQVKxCP5W (p2, c1, k60).
+2024-10-09T18:09:40.061071011Z 1728497380: Client mosq-1eQUvUWUfkQVKxCP5W disconnected.
+2024-10-09T18:09:41.071136845Z 1728497381: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:41.072259761Z 1728497381: New client connected from 172.25.0.3 as mosq-ReVToFVKxqwgGRwbel (p2, c1, k60).
+2024-10-09T18:09:41.074808386Z 1728497381: Client mosq-ReVToFVKxqwgGRwbel disconnected.
+2024-10-09T18:09:42.084300345Z 1728497382: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:42.085254262Z 1728497382: New client connected from 172.25.0.3 as mosq-VDfB4O2NbQVzlTOWDg (p2, c1, k60).
+2024-10-09T18:09:42.087610637Z 1728497382: Client mosq-VDfB4O2NbQVzlTOWDg disconnected.
+2024-10-09T18:09:43.098441262Z 1728497383: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:43.099513054Z 1728497383: New client connected from 172.25.0.3 as mosq-dkYONfacL0tliI07HR (p2, c1, k60).
+2024-10-09T18:09:43.101408804Z 1728497383: Client mosq-dkYONfacL0tliI07HR disconnected.
+2024-10-09T18:09:44.109930304Z 1728497384: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:44.110895679Z 1728497384: New client connected from 172.25.0.3 as mosq-ARWzNnKRz5zIuToqx2 (p2, c1, k60).
+2024-10-09T18:09:44.112723804Z 1728497384: Client mosq-ARWzNnKRz5zIuToqx2 disconnected.
+2024-10-09T18:09:45.121015763Z 1728497385: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:45.122304096Z 1728497385: New client connected from 172.25.0.3 as mosq-mbiBbWXbx2zertSWzc (p2, c1, k60).
+2024-10-09T18:09:45.124502846Z 1728497385: Client mosq-mbiBbWXbx2zertSWzc disconnected.
+2024-10-09T18:09:46.134189014Z 1728497386: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:46.135304680Z 1728497386: New client connected from 172.25.0.3 as mosq-WLa9uAAQG2vJIospzr (p2, c1, k60).
+2024-10-09T18:09:46.137171305Z 1728497386: Client mosq-WLa9uAAQG2vJIospzr disconnected.
+2024-10-09T18:09:47.145428458Z 1728497387: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:47.146263875Z 1728497387: New client connected from 172.25.0.3 as mosq-oYq4NgWntEaDbwxTKX (p2, c1, k60).
+2024-10-09T18:09:47.147584750Z 1728497387: Client mosq-oYq4NgWntEaDbwxTKX disconnected.
+2024-10-09T18:09:48.161007417Z 1728497388: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:48.162166750Z 1728497388: New client connected from 172.25.0.3 as mosq-GMOWGpA3F3YzaywBQ7 (p2, c1, k60).
+2024-10-09T18:09:48.164621834Z 1728497388: Client mosq-GMOWGpA3F3YzaywBQ7 disconnected.
+2024-10-09T18:09:49.174434876Z 1728497389: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:49.175432542Z 1728497389: New client connected from 172.25.0.3 as mosq-ylVuAGLkkTGYgdRPVd (p2, c1, k60).
+2024-10-09T18:09:49.177760917Z 1728497389: Client mosq-ylVuAGLkkTGYgdRPVd disconnected.
+2024-10-09T18:09:50.187992751Z 1728497390: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:50.188963376Z 1728497390: New client connected from 172.25.0.3 as mosq-jHknBEma0NdICemUZe (p2, c1, k60).
+2024-10-09T18:09:50.191222168Z 1728497390: Client mosq-jHknBEma0NdICemUZe disconnected.
+2024-10-09T18:09:51.203440585Z 1728497391: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:51.204451252Z 1728497391: New client connected from 172.25.0.3 as mosq-VTDe4QuGXPSgboBIWq (p2, c1, k60).
+2024-10-09T18:09:51.206730377Z 1728497391: Client mosq-VTDe4QuGXPSgboBIWq disconnected.
+2024-10-09T18:09:52.216272336Z 1728497392: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:52.218095211Z 1728497392: New client connected from 172.25.0.3 as mosq-xnMeV5VxBE4hoJSGCZ (p2, c1, k60).
+2024-10-09T18:09:52.221165919Z 1728497392: Client mosq-xnMeV5VxBE4hoJSGCZ disconnected.
+2024-10-09T18:09:53.235236711Z 1728497393: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:53.236278669Z 1728497393: New client connected from 172.25.0.3 as mosq-ml3CIcz5qNwdbXJRui (p2, c1, k60).
+2024-10-09T18:09:53.238662711Z 1728497393: Client mosq-ml3CIcz5qNwdbXJRui disconnected.
+2024-10-09T18:09:54.248886628Z 1728497394: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:54.249888086Z 1728497394: New client connected from 172.25.0.3 as mosq-yBj9Q1ye4lNCbx3mCX (p2, c1, k60).
+2024-10-09T18:09:54.252166920Z 1728497394: Client mosq-yBj9Q1ye4lNCbx3mCX disconnected.
+2024-10-09T18:09:55.263056462Z 1728497395: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:55.264187879Z 1728497395: New client connected from 172.25.0.3 as mosq-dRiiWfBCgjaqUWXrhS (p2, c1, k60).
+2024-10-09T18:09:55.266655712Z 1728497395: Client mosq-dRiiWfBCgjaqUWXrhS disconnected.
+2024-10-09T18:09:56.275080254Z 1728497396: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:56.276147212Z 1728497396: New client connected from 172.25.0.3 as mosq-zC0zsRnn6fzGe6UyZ7 (p2, c1, k60).
+2024-10-09T18:09:56.278641504Z 1728497396: Client mosq-zC0zsRnn6fzGe6UyZ7 disconnected.
+2024-10-09T18:09:57.286470796Z 1728497397: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:57.287443921Z 1728497397: New client connected from 172.25.0.3 as mosq-z0Hnpco2IvdU9z2wJ2 (p2, c1, k60).
+2024-10-09T18:09:57.289275380Z 1728497397: Client mosq-z0Hnpco2IvdU9z2wJ2 disconnected.
+2024-10-09T18:09:58.293003380Z 1728497398: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:58.293134963Z 1728497398: New client connected from 172.25.0.3 as mosq-WEHOYwpRtg4PHAx1g4 (p2, c1, k60).
+2024-10-09T18:09:58.293440380Z 1728497398: Client mosq-WEHOYwpRtg4PHAx1g4 disconnected.
+2024-10-09T18:09:59.304424964Z 1728497399: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:09:59.305518006Z 1728497399: New client connected from 172.25.0.3 as mosq-Fp0KZ2Pd3by9Cz8GiR (p2, c1, k60).
+2024-10-09T18:09:59.307282172Z 1728497399: Client mosq-Fp0KZ2Pd3by9Cz8GiR disconnected.
+2024-10-09T18:10:00.316957339Z 1728497400: New connection from 172.25.0.3 on port 1883.
+2024-10-09T18:10:00.317959006Z 1728497400: New client connected from 172.25.0.3 as mosq-H7aHAZZe4WhwPsZcq6 (p2, c1, k60).
+2024-10-09T18:10:00.320340131Z 1728497400: Client mosq-H7aHAZZe4WhwPsZcq6 disconnected.

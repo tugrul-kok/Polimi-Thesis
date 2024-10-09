@@ -1,0 +1,317 @@
+2024-10-09T18:09:30.929468756Z Publishing retained message...
+2024-10-09T18:09:30.930734965Z Client mosq-GeFv1RYQvnhOtMhLea sending CONNECT
+2024-10-09T18:09:30.930738673Z Client mosq-GeFv1RYQvnhOtMhLea received CONNACK (0)
+2024-10-09T18:09:30.930740298Z Client mosq-GeFv1RYQvnhOtMhLea sending PUBLISH (d0, q0, r1, m1, 'test/topic', ... (16 bytes))
+2024-10-09T18:09:30.930741090Z Client mosq-GeFv1RYQvnhOtMhLea sending DISCONNECT
+2024-10-09T18:09:30.931847965Z Publishing test message at Wed Oct  9 18:09:30 UTC 2024...
+2024-10-09T18:09:30.933742548Z Client mosq-nOrIK0jbtdRcEdm4xd sending CONNECT
+2024-10-09T18:09:30.933751465Z Client mosq-nOrIK0jbtdRcEdm4xd received CONNACK (0)
+2024-10-09T18:09:30.933752840Z Client mosq-nOrIK0jbtdRcEdm4xd sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:30.933754298Z Client mosq-nOrIK0jbtdRcEdm4xd sending DISCONNECT
+2024-10-09T18:09:31.938550840Z Publishing test message at Wed Oct  9 18:09:31 UTC 2024...
+2024-10-09T18:09:31.943060090Z Client mosq-2nblgl8P8AEW8VwbSx sending CONNECT
+2024-10-09T18:09:31.943078673Z Client mosq-2nblgl8P8AEW8VwbSx received CONNACK (0)
+2024-10-09T18:09:31.943080215Z Client mosq-2nblgl8P8AEW8VwbSx sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:31.943082090Z Client mosq-2nblgl8P8AEW8VwbSx sending DISCONNECT
+2024-10-09T18:09:32.948355757Z Publishing test message at Wed Oct  9 18:09:32 UTC 2024...
+2024-10-09T18:09:32.954678257Z Client mosq-ZMKndTjsOi2dd5GUwQ sending CONNECT
+2024-10-09T18:09:32.954712549Z Client mosq-ZMKndTjsOi2dd5GUwQ received CONNACK (0)
+2024-10-09T18:09:32.954717382Z Client mosq-ZMKndTjsOi2dd5GUwQ sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:32.954721674Z Client mosq-ZMKndTjsOi2dd5GUwQ sending DISCONNECT
+2024-10-09T18:09:33.964741258Z Publishing test message at Wed Oct  9 18:09:33 UTC 2024...
+2024-10-09T18:09:33.970700383Z Client mosq-yYSqwG8bbbBxyrNW6M sending CONNECT
+2024-10-09T18:09:33.970726758Z Client mosq-yYSqwG8bbbBxyrNW6M received CONNACK (0)
+2024-10-09T18:09:33.970731841Z Client mosq-yYSqwG8bbbBxyrNW6M sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:33.970735174Z Client mosq-yYSqwG8bbbBxyrNW6M sending DISCONNECT
+2024-10-09T18:09:34.979274342Z Publishing test message at Wed Oct  9 18:09:34 UTC 2024...
+2024-10-09T18:09:34.985565592Z Client mosq-kgJNhpKSpbPWMbVICi sending CONNECT
+2024-10-09T18:09:34.985595342Z Client mosq-kgJNhpKSpbPWMbVICi received CONNACK (0)
+2024-10-09T18:09:34.985599592Z Client mosq-kgJNhpKSpbPWMbVICi sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:34.985603883Z Client mosq-kgJNhpKSpbPWMbVICi sending DISCONNECT
+2024-10-09T18:09:35.995701259Z Publishing test message at Wed Oct  9 18:09:35 UTC 2024...
+2024-10-09T18:09:36.001954717Z Client mosq-DBmtOdtAupL98D6aR5 sending CONNECT
+2024-10-09T18:09:36.002013759Z Client mosq-DBmtOdtAupL98D6aR5 received CONNACK (0)
+2024-10-09T18:09:36.002062550Z Client mosq-DBmtOdtAupL98D6aR5 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:36.002081342Z Client mosq-DBmtOdtAupL98D6aR5 sending DISCONNECT
+2024-10-09T18:09:37.008186468Z Publishing test message at Wed Oct  9 18:09:37 UTC 2024...
+2024-10-09T18:09:37.015799801Z Client mosq-ixtyY9UqCJVYKZXVrT sending CONNECT
+2024-10-09T18:09:37.015824218Z Client mosq-ixtyY9UqCJVYKZXVrT received CONNACK (0)
+2024-10-09T18:09:37.015826718Z Client mosq-ixtyY9UqCJVYKZXVrT sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:37.015828468Z Client mosq-ixtyY9UqCJVYKZXVrT sending DISCONNECT
+2024-10-09T18:09:38.026649510Z Publishing test message at Wed Oct  9 18:09:38 UTC 2024...
+2024-10-09T18:09:38.032773218Z Client mosq-LbNlIqrd5CEZX1aEk4 sending CONNECT
+2024-10-09T18:09:38.032807510Z Client mosq-LbNlIqrd5CEZX1aEk4 received CONNACK (0)
+2024-10-09T18:09:38.032812968Z Client mosq-LbNlIqrd5CEZX1aEk4 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:38.032817593Z Client mosq-LbNlIqrd5CEZX1aEk4 sending DISCONNECT
+2024-10-09T18:09:39.038230052Z Publishing test message at Wed Oct  9 18:09:39 UTC 2024...
+2024-10-09T18:09:39.044623552Z Client mosq-3iGUebZQ6sb9Pb2pAd sending CONNECT
+2024-10-09T18:09:39.044643677Z Client mosq-3iGUebZQ6sb9Pb2pAd received CONNACK (0)
+2024-10-09T18:09:39.044649969Z Client mosq-3iGUebZQ6sb9Pb2pAd sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:39.044653844Z Client mosq-3iGUebZQ6sb9Pb2pAd sending DISCONNECT
+2024-10-09T18:09:40.053339552Z Publishing test message at Wed Oct  9 18:09:40 UTC 2024...
+2024-10-09T18:09:40.059481344Z Client mosq-1eQUvUWUfkQVKxCP5W sending CONNECT
+2024-10-09T18:09:40.059520177Z Client mosq-1eQUvUWUfkQVKxCP5W received CONNACK (0)
+2024-10-09T18:09:40.059526886Z Client mosq-1eQUvUWUfkQVKxCP5W sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:40.059531469Z Client mosq-1eQUvUWUfkQVKxCP5W sending DISCONNECT
+2024-10-09T18:09:41.066629095Z Publishing test message at Wed Oct  9 18:09:41 UTC 2024...
+2024-10-09T18:09:41.073044720Z Client mosq-ReVToFVKxqwgGRwbel sending CONNECT
+2024-10-09T18:09:41.073084511Z Client mosq-ReVToFVKxqwgGRwbel received CONNACK (0)
+2024-10-09T18:09:41.073089428Z Client mosq-ReVToFVKxqwgGRwbel sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:41.073093845Z Client mosq-ReVToFVKxqwgGRwbel sending DISCONNECT
+2024-10-09T18:09:42.080133387Z Publishing test message at Wed Oct  9 18:09:42 UTC 2024...
+2024-10-09T18:09:42.085913678Z Client mosq-VDfB4O2NbQVzlTOWDg sending CONNECT
+2024-10-09T18:09:42.085939803Z Client mosq-VDfB4O2NbQVzlTOWDg received CONNACK (0)
+2024-10-09T18:09:42.085944637Z Client mosq-VDfB4O2NbQVzlTOWDg sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:42.085979678Z Client mosq-VDfB4O2NbQVzlTOWDg sending DISCONNECT
+2024-10-09T18:09:43.094121095Z Publishing test message at Wed Oct  9 18:09:43 UTC 2024...
+2024-10-09T18:09:43.100245054Z Client mosq-dkYONfacL0tliI07HR sending CONNECT
+2024-10-09T18:09:43.100283095Z Client mosq-dkYONfacL0tliI07HR received CONNACK (0)
+2024-10-09T18:09:43.100287012Z Client mosq-dkYONfacL0tliI07HR sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:43.100291720Z Client mosq-dkYONfacL0tliI07HR sending DISCONNECT
+2024-10-09T18:09:44.105986096Z Publishing test message at Wed Oct  9 18:09:44 UTC 2024...
+2024-10-09T18:09:44.111510971Z Client mosq-ARWzNnKRz5zIuToqx2 sending CONNECT
+2024-10-09T18:09:44.111537804Z Client mosq-ARWzNnKRz5zIuToqx2 received CONNACK (0)
+2024-10-09T18:09:44.111543304Z Client mosq-ARWzNnKRz5zIuToqx2 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:44.111545596Z Client mosq-ARWzNnKRz5zIuToqx2 sending DISCONNECT
+2024-10-09T18:09:45.116809305Z Publishing test message at Wed Oct  9 18:09:45 UTC 2024...
+2024-10-09T18:09:45.122836388Z Client mosq-mbiBbWXbx2zertSWzc sending CONNECT
+2024-10-09T18:09:45.122863055Z Client mosq-mbiBbWXbx2zertSWzc received CONNACK (0)
+2024-10-09T18:09:45.122871305Z Client mosq-mbiBbWXbx2zertSWzc sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:45.122875013Z Client mosq-mbiBbWXbx2zertSWzc sending DISCONNECT
+2024-10-09T18:09:46.129583014Z Publishing test message at Wed Oct  9 18:09:46 UTC 2024...
+2024-10-09T18:09:46.135909555Z Client mosq-WLa9uAAQG2vJIospzr sending CONNECT
+2024-10-09T18:09:46.135933514Z Client mosq-WLa9uAAQG2vJIospzr received CONNACK (0)
+2024-10-09T18:09:46.135937764Z Client mosq-WLa9uAAQG2vJIospzr sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:46.135940722Z Client mosq-WLa9uAAQG2vJIospzr sending DISCONNECT
+2024-10-09T18:09:47.140955875Z Publishing test message at Wed Oct  9 18:09:47 UTC 2024...
+2024-10-09T18:09:47.146694083Z Client mosq-oYq4NgWntEaDbwxTKX sending CONNECT
+2024-10-09T18:09:47.146709750Z Client mosq-oYq4NgWntEaDbwxTKX received CONNACK (0)
+2024-10-09T18:09:47.146713083Z Client mosq-oYq4NgWntEaDbwxTKX sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:47.146720166Z Client mosq-oYq4NgWntEaDbwxTKX sending DISCONNECT
+2024-10-09T18:09:48.157509125Z Publishing test message at Wed Oct  9 18:09:48 UTC 2024...
+2024-10-09T18:09:48.163024584Z Client mosq-GMOWGpA3F3YzaywBQ7 sending CONNECT
+2024-10-09T18:09:48.163120167Z Client mosq-GMOWGpA3F3YzaywBQ7 received CONNACK (0)
+2024-10-09T18:09:48.163130334Z Client mosq-GMOWGpA3F3YzaywBQ7 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:48.163133459Z Client mosq-GMOWGpA3F3YzaywBQ7 sending DISCONNECT
+2024-10-09T18:09:49.171593709Z Publishing test message at Wed Oct  9 18:09:49 UTC 2024...
+2024-10-09T18:09:49.176236542Z Client mosq-ylVuAGLkkTGYgdRPVd sending CONNECT
+2024-10-09T18:09:49.176267959Z Client mosq-ylVuAGLkkTGYgdRPVd received CONNACK (0)
+2024-10-09T18:09:49.176273917Z Client mosq-ylVuAGLkkTGYgdRPVd sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:49.176278334Z Client mosq-ylVuAGLkkTGYgdRPVd sending DISCONNECT
+2024-10-09T18:09:50.183729126Z Publishing test message at Wed Oct  9 18:09:50 UTC 2024...
+2024-10-09T18:09:50.189587001Z Client mosq-jHknBEma0NdICemUZe sending CONNECT
+2024-10-09T18:09:50.189609210Z Client mosq-jHknBEma0NdICemUZe received CONNACK (0)
+2024-10-09T18:09:50.189615085Z Client mosq-jHknBEma0NdICemUZe sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:50.189618668Z Client mosq-jHknBEma0NdICemUZe sending DISCONNECT
+2024-10-09T18:09:51.199077752Z Publishing test message at Wed Oct  9 18:09:51 UTC 2024...
+2024-10-09T18:09:51.205041793Z Client mosq-VTDe4QuGXPSgboBIWq sending CONNECT
+2024-10-09T18:09:51.205071585Z Client mosq-VTDe4QuGXPSgboBIWq received CONNACK (0)
+2024-10-09T18:09:51.205075502Z Client mosq-VTDe4QuGXPSgboBIWq sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:51.205078793Z Client mosq-VTDe4QuGXPSgboBIWq sending DISCONNECT
+2024-10-09T18:09:52.211800919Z Publishing test message at Wed Oct  9 18:09:52 UTC 2024...
+2024-10-09T18:09:52.219189544Z Client mosq-xnMeV5VxBE4hoJSGCZ sending CONNECT
+2024-10-09T18:09:52.219217502Z Client mosq-xnMeV5VxBE4hoJSGCZ received CONNACK (0)
+2024-10-09T18:09:52.219221294Z Client mosq-xnMeV5VxBE4hoJSGCZ sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:52.219224502Z Client mosq-xnMeV5VxBE4hoJSGCZ sending DISCONNECT
+2024-10-09T18:09:53.230778378Z Publishing test message at Wed Oct  9 18:09:53 UTC 2024...
+2024-10-09T18:09:53.237124836Z Client mosq-ml3CIcz5qNwdbXJRui sending CONNECT
+2024-10-09T18:09:53.237166336Z Client mosq-ml3CIcz5qNwdbXJRui received CONNACK (0)
+2024-10-09T18:09:53.237173544Z Client mosq-ml3CIcz5qNwdbXJRui sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:53.237177503Z Client mosq-ml3CIcz5qNwdbXJRui sending DISCONNECT
+2024-10-09T18:09:54.244841211Z Publishing test message at Wed Oct  9 18:09:54 UTC 2024...
+2024-10-09T18:09:54.250516086Z Client mosq-yBj9Q1ye4lNCbx3mCX sending CONNECT
+2024-10-09T18:09:54.250542795Z Client mosq-yBj9Q1ye4lNCbx3mCX received CONNACK (0)
+2024-10-09T18:09:54.250546378Z Client mosq-yBj9Q1ye4lNCbx3mCX sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:54.250549670Z Client mosq-yBj9Q1ye4lNCbx3mCX sending DISCONNECT
+2024-10-09T18:09:55.259776587Z Publishing test message at Wed Oct  9 18:09:55 UTC 2024...
+2024-10-09T18:09:55.264849462Z Client mosq-dRiiWfBCgjaqUWXrhS sending CONNECT
+2024-10-09T18:09:55.264878170Z Client mosq-dRiiWfBCgjaqUWXrhS received CONNACK (0)
+2024-10-09T18:09:55.264881212Z Client mosq-dRiiWfBCgjaqUWXrhS sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:55.264884087Z Client mosq-dRiiWfBCgjaqUWXrhS sending DISCONNECT
+2024-10-09T18:09:56.270604504Z Publishing test message at Wed Oct  9 18:09:56 UTC 2024...
+2024-10-09T18:09:56.276941587Z Client mosq-zC0zsRnn6fzGe6UyZ7 sending CONNECT
+2024-10-09T18:09:56.276971546Z Client mosq-zC0zsRnn6fzGe6UyZ7 received CONNACK (0)
+2024-10-09T18:09:56.276974171Z Client mosq-zC0zsRnn6fzGe6UyZ7 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:56.276977546Z Client mosq-zC0zsRnn6fzGe6UyZ7 sending DISCONNECT
+2024-10-09T18:09:57.282352463Z Publishing test message at Wed Oct  9 18:09:57 UTC 2024...
+2024-10-09T18:09:57.288102880Z Client mosq-z0Hnpco2IvdU9z2wJ2 sending CONNECT
+2024-10-09T18:09:57.288131796Z Client mosq-z0Hnpco2IvdU9z2wJ2 received CONNACK (0)
+2024-10-09T18:09:57.288136463Z Client mosq-z0Hnpco2IvdU9z2wJ2 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:57.288139755Z Client mosq-z0Hnpco2IvdU9z2wJ2 sending DISCONNECT
+2024-10-09T18:09:58.291837213Z Publishing test message at Wed Oct  9 18:09:58 UTC 2024...
+2024-10-09T18:09:58.293295338Z Client mosq-WEHOYwpRtg4PHAx1g4 sending CONNECT
+2024-10-09T18:09:58.293309880Z Client mosq-WEHOYwpRtg4PHAx1g4 received CONNACK (0)
+2024-10-09T18:09:58.293312880Z Client mosq-WEHOYwpRtg4PHAx1g4 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:58.293314255Z Client mosq-WEHOYwpRtg4PHAx1g4 sending DISCONNECT
+2024-10-09T18:09:59.300404422Z Publishing test message at Wed Oct  9 18:09:59 UTC 2024...
+2024-10-09T18:09:59.306207881Z Client mosq-Fp0KZ2Pd3by9Cz8GiR sending CONNECT
+2024-10-09T18:09:59.306231256Z Client mosq-Fp0KZ2Pd3by9Cz8GiR received CONNACK (0)
+2024-10-09T18:09:59.306233672Z Client mosq-Fp0KZ2Pd3by9Cz8GiR sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:09:59.306236214Z Client mosq-Fp0KZ2Pd3by9Cz8GiR sending DISCONNECT
+2024-10-09T18:10:00.312718673Z Publishing test message at Wed Oct  9 18:10:00 UTC 2024...
+2024-10-09T18:10:00.318701048Z Client mosq-H7aHAZZe4WhwPsZcq6 sending CONNECT
+2024-10-09T18:10:00.318738464Z Client mosq-H7aHAZZe4WhwPsZcq6 received CONNACK (0)
+2024-10-09T18:10:00.318742464Z Client mosq-H7aHAZZe4WhwPsZcq6 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:00.318746548Z Client mosq-H7aHAZZe4WhwPsZcq6 sending DISCONNECT
+2024-10-09T18:10:01.327281590Z Publishing test message at Wed Oct  9 18:10:01 UTC 2024...
+2024-10-09T18:10:01.334081090Z Disconnected at Wed Oct  9 18:10:01 UTC 2024
+2024-10-09T18:10:02.339932007Z Publishing test message at Wed Oct  9 18:10:02 UTC 2024...
+2024-10-09T18:10:03.347257507Z Publishing test message at Wed Oct  9 18:10:03 UTC 2024...
+2024-10-09T18:10:04.351271466Z Publishing test message at Wed Oct  9 18:10:04 UTC 2024...
+2024-10-09T18:10:05.358404800Z Publishing test message at Wed Oct  9 18:10:05 UTC 2024...
+2024-10-09T18:10:06.373249051Z Publishing test message at Wed Oct  9 18:10:06 UTC 2024...
+2024-10-09T18:10:07.384407718Z Publishing test message at Wed Oct  9 18:10:07 UTC 2024...
+2024-10-09T18:10:08.393544927Z Publishing test message at Wed Oct  9 18:10:08 UTC 2024...
+2024-10-09T18:10:09.403384594Z Publishing test message at Wed Oct  9 18:10:09 UTC 2024...
+2024-10-09T18:10:10.414192053Z Publishing test message at Wed Oct  9 18:10:10 UTC 2024...
+2024-10-09T18:10:11.421308928Z Publishing test message at Wed Oct  9 18:10:11 UTC 2024...
+2024-10-09T18:10:15.533268347Z Client mosq-vFHHqAv1qapDD8o3Lr sending CONNECT
+2024-10-09T18:10:15.533327430Z Client mosq-vFHHqAv1qapDD8o3Lr received CONNACK (0)
+2024-10-09T18:10:15.533334305Z Client mosq-vFHHqAv1qapDD8o3Lr sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:15.533339972Z Client mosq-vFHHqAv1qapDD8o3Lr sending DISCONNECT
+2024-10-09T18:10:15.538255263Z Reconnected at Wed Oct  9 18:10:15 UTC 2024 after 14 seconds of downtime
+2024-10-09T18:10:16.546112389Z Publishing test message at Wed Oct  9 18:10:16 UTC 2024...
+2024-10-09T18:10:16.552692889Z Client mosq-dZe1b00jYcLRdZgLA9 sending CONNECT
+2024-10-09T18:10:16.552736972Z Client mosq-dZe1b00jYcLRdZgLA9 received CONNACK (0)
+2024-10-09T18:10:16.552744430Z Client mosq-dZe1b00jYcLRdZgLA9 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:16.552756722Z Client mosq-dZe1b00jYcLRdZgLA9 sending DISCONNECT
+2024-10-09T18:10:17.561959917Z Publishing test message at Wed Oct  9 18:10:17 UTC 2024...
+2024-10-09T18:10:17.568398792Z Client mosq-a7F9OapouF4xThz7Rr sending CONNECT
+2024-10-09T18:10:17.568432125Z Client mosq-a7F9OapouF4xThz7Rr received CONNACK (0)
+2024-10-09T18:10:17.568435208Z Client mosq-a7F9OapouF4xThz7Rr sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:17.568437875Z Client mosq-a7F9OapouF4xThz7Rr sending DISCONNECT
+2024-10-09T18:10:18.575435417Z Publishing test message at Wed Oct  9 18:10:18 UTC 2024...
+2024-10-09T18:10:18.581259375Z Client mosq-yuMmmhXXrbyIfOnysL sending CONNECT
+2024-10-09T18:10:18.581287542Z Client mosq-yuMmmhXXrbyIfOnysL received CONNACK (0)
+2024-10-09T18:10:18.581291042Z Client mosq-yuMmmhXXrbyIfOnysL sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:18.581294292Z Client mosq-yuMmmhXXrbyIfOnysL sending DISCONNECT
+2024-10-09T18:10:19.591789334Z Publishing test message at Wed Oct  9 18:10:19 UTC 2024...
+2024-10-09T18:10:19.598020709Z Client mosq-QCcOM5L9K7yvS5LYHQ sending CONNECT
+2024-10-09T18:10:19.598048959Z Client mosq-QCcOM5L9K7yvS5LYHQ received CONNACK (0)
+2024-10-09T18:10:19.598052709Z Client mosq-QCcOM5L9K7yvS5LYHQ sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:19.598058001Z Client mosq-QCcOM5L9K7yvS5LYHQ sending DISCONNECT
+2024-10-09T18:10:20.609442335Z Publishing test message at Wed Oct  9 18:10:20 UTC 2024...
+2024-10-09T18:10:20.615893210Z Client mosq-AJQ9ksTr8KDQ3qbHPk sending CONNECT
+2024-10-09T18:10:20.615916085Z Client mosq-AJQ9ksTr8KDQ3qbHPk received CONNACK (0)
+2024-10-09T18:10:20.615919543Z Client mosq-AJQ9ksTr8KDQ3qbHPk sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:20.615921668Z Client mosq-AJQ9ksTr8KDQ3qbHPk sending DISCONNECT
+2024-10-09T18:10:21.622241877Z Publishing test message at Wed Oct  9 18:10:21 UTC 2024...
+2024-10-09T18:10:21.628566877Z Client mosq-4Sn34ufz1JNHtYwV05 sending CONNECT
+2024-10-09T18:10:21.628597710Z Client mosq-4Sn34ufz1JNHtYwV05 received CONNACK (0)
+2024-10-09T18:10:21.628607377Z Client mosq-4Sn34ufz1JNHtYwV05 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:21.628611710Z Client mosq-4Sn34ufz1JNHtYwV05 sending DISCONNECT
+2024-10-09T18:10:22.633884336Z Publishing test message at Wed Oct  9 18:10:22 UTC 2024...
+2024-10-09T18:10:22.639078961Z Client mosq-I8iKDuD03MqOLkQg4L sending CONNECT
+2024-10-09T18:10:22.639103002Z Client mosq-I8iKDuD03MqOLkQg4L received CONNACK (0)
+2024-10-09T18:10:22.639104627Z Client mosq-I8iKDuD03MqOLkQg4L sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:22.639107836Z Client mosq-I8iKDuD03MqOLkQg4L sending DISCONNECT
+2024-10-09T18:10:23.650297586Z Publishing test message at Wed Oct  9 18:10:23 UTC 2024...
+2024-10-09T18:10:23.656659586Z Client mosq-6uoTI53c9BmFISj59R sending CONNECT
+2024-10-09T18:10:23.656691670Z Client mosq-6uoTI53c9BmFISj59R received CONNACK (0)
+2024-10-09T18:10:23.656696003Z Client mosq-6uoTI53c9BmFISj59R sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:23.656698836Z Client mosq-6uoTI53c9BmFISj59R sending DISCONNECT
+2024-10-09T18:10:24.665818878Z Publishing test message at Wed Oct  9 18:10:24 UTC 2024...
+2024-10-09T18:10:24.672080128Z Client mosq-ascaiYid9JwRTEjp49 sending CONNECT
+2024-10-09T18:10:24.672135962Z Client mosq-ascaiYid9JwRTEjp49 received CONNACK (0)
+2024-10-09T18:10:24.672140878Z Client mosq-ascaiYid9JwRTEjp49 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:24.672143837Z Client mosq-ascaiYid9JwRTEjp49 sending DISCONNECT
+2024-10-09T18:10:25.674324587Z Publishing test message at Wed Oct  9 18:10:25 UTC 2024...
+2024-10-09T18:10:25.676185087Z Client mosq-imAtE0cFBNGknHkQu3 sending CONNECT
+2024-10-09T18:10:25.676197754Z Client mosq-imAtE0cFBNGknHkQu3 received CONNACK (0)
+2024-10-09T18:10:25.676199920Z Client mosq-imAtE0cFBNGknHkQu3 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:25.676201795Z Client mosq-imAtE0cFBNGknHkQu3 sending DISCONNECT
+2024-10-09T18:10:26.682126921Z Publishing test message at Wed Oct  9 18:10:26 UTC 2024...
+2024-10-09T18:10:26.687172963Z Client mosq-fDuKteiUV3m5dTQrAi sending CONNECT
+2024-10-09T18:10:26.687194129Z Client mosq-fDuKteiUV3m5dTQrAi received CONNACK (0)
+2024-10-09T18:10:26.687198629Z Client mosq-fDuKteiUV3m5dTQrAi sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:26.687202171Z Client mosq-fDuKteiUV3m5dTQrAi sending DISCONNECT
+2024-10-09T18:10:27.690956880Z Publishing test message at Wed Oct  9 18:10:27 UTC 2024...
+2024-10-09T18:10:27.695365088Z Client mosq-utnJrbBTInxE253rEm sending CONNECT
+2024-10-09T18:10:27.695387130Z Client mosq-utnJrbBTInxE253rEm received CONNACK (0)
+2024-10-09T18:10:27.695390421Z Client mosq-utnJrbBTInxE253rEm sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:27.695393088Z Client mosq-utnJrbBTInxE253rEm sending DISCONNECT
+2024-10-09T18:10:28.702912464Z Publishing test message at Wed Oct  9 18:10:28 UTC 2024...
+2024-10-09T18:10:28.708884505Z Client mosq-NoE0jc3ypvcDNvYuuR sending CONNECT
+2024-10-09T18:10:28.708907005Z Client mosq-NoE0jc3ypvcDNvYuuR received CONNACK (0)
+2024-10-09T18:10:28.708911422Z Client mosq-NoE0jc3ypvcDNvYuuR sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:28.708913839Z Client mosq-NoE0jc3ypvcDNvYuuR sending DISCONNECT
+2024-10-09T18:10:29.719962714Z Publishing test message at Wed Oct  9 18:10:29 UTC 2024...
+2024-10-09T18:10:29.725935714Z Client mosq-18I0KtHUN6LFszMF0C sending CONNECT
+2024-10-09T18:10:29.725964839Z Client mosq-18I0KtHUN6LFszMF0C received CONNACK (0)
+2024-10-09T18:10:29.725968589Z Client mosq-18I0KtHUN6LFszMF0C sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:29.725972172Z Client mosq-18I0KtHUN6LFszMF0C sending DISCONNECT
+2024-10-09T18:10:30.734502340Z Publishing test message at Wed Oct  9 18:10:30 UTC 2024...
+2024-10-09T18:10:30.740793631Z Client mosq-mDjTpQK79laKywiSLr sending CONNECT
+2024-10-09T18:10:30.740821965Z Client mosq-mDjTpQK79laKywiSLr received CONNACK (0)
+2024-10-09T18:10:30.740881131Z Client mosq-mDjTpQK79laKywiSLr sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:30.740887173Z Client mosq-mDjTpQK79laKywiSLr sending DISCONNECT
+2024-10-09T18:10:31.751796090Z Publishing test message at Wed Oct  9 18:10:31 UTC 2024...
+2024-10-09T18:10:31.758059965Z Client mosq-fAaKbLlF0uwbLEfzRP sending CONNECT
+2024-10-09T18:10:31.758085673Z Client mosq-fAaKbLlF0uwbLEfzRP received CONNACK (0)
+2024-10-09T18:10:31.758095590Z Client mosq-fAaKbLlF0uwbLEfzRP sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:31.758100673Z Client mosq-fAaKbLlF0uwbLEfzRP sending DISCONNECT
+2024-10-09T18:10:32.764147216Z Publishing test message at Wed Oct  9 18:10:32 UTC 2024...
+2024-10-09T18:10:32.770128299Z Client mosq-4jObumK25S9q6pqtZu sending CONNECT
+2024-10-09T18:10:32.770155549Z Client mosq-4jObumK25S9q6pqtZu received CONNACK (0)
+2024-10-09T18:10:32.770161257Z Client mosq-4jObumK25S9q6pqtZu sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:32.770166549Z Client mosq-4jObumK25S9q6pqtZu sending DISCONNECT
+2024-10-09T18:10:33.776126924Z Publishing test message at Wed Oct  9 18:10:33 UTC 2024...
+2024-10-09T18:10:33.781663549Z Client mosq-f2Kvnd2vrPsbJAXW8h sending CONNECT
+2024-10-09T18:10:33.781693841Z Client mosq-f2Kvnd2vrPsbJAXW8h received CONNACK (0)
+2024-10-09T18:10:33.781696799Z Client mosq-f2Kvnd2vrPsbJAXW8h sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:33.781700674Z Client mosq-f2Kvnd2vrPsbJAXW8h sending DISCONNECT
+2024-10-09T18:10:34.787647258Z Publishing test message at Wed Oct  9 18:10:34 UTC 2024...
+2024-10-09T18:10:34.793551675Z Client mosq-ZxmV0NmF6sSa91tqv4 sending CONNECT
+2024-10-09T18:10:34.793576050Z Client mosq-ZxmV0NmF6sSa91tqv4 received CONNACK (0)
+2024-10-09T18:10:34.793579967Z Client mosq-ZxmV0NmF6sSa91tqv4 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:34.793583425Z Client mosq-ZxmV0NmF6sSa91tqv4 sending DISCONNECT
+2024-10-09T18:10:35.803530634Z Publishing test message at Wed Oct  9 18:10:35 UTC 2024...
+2024-10-09T18:10:35.809455925Z Client mosq-HAvGcwXfQQwbhoiRjQ sending CONNECT
+2024-10-09T18:10:35.809482384Z Client mosq-HAvGcwXfQQwbhoiRjQ received CONNACK (0)
+2024-10-09T18:10:35.809486759Z Client mosq-HAvGcwXfQQwbhoiRjQ sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:35.809491217Z Client mosq-HAvGcwXfQQwbhoiRjQ sending DISCONNECT
+2024-10-09T18:10:36.819557884Z Publishing test message at Wed Oct  9 18:10:36 UTC 2024...
+2024-10-09T18:10:36.825322467Z Client mosq-v3y7czypkq1Dj8Xs9c sending CONNECT
+2024-10-09T18:10:36.825347842Z Client mosq-v3y7czypkq1Dj8Xs9c received CONNACK (0)
+2024-10-09T18:10:36.825351676Z Client mosq-v3y7czypkq1Dj8Xs9c sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:36.825382092Z Client mosq-v3y7czypkq1Dj8Xs9c sending DISCONNECT
+2024-10-09T18:10:37.831233510Z Publishing test message at Wed Oct  9 18:10:37 UTC 2024...
+2024-10-09T18:10:37.838812635Z Client mosq-BPPlSb27ObSgehGZEq sending CONNECT
+2024-10-09T18:10:37.838917260Z Client mosq-BPPlSb27ObSgehGZEq received CONNACK (0)
+2024-10-09T18:10:37.838929801Z Client mosq-BPPlSb27ObSgehGZEq sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:37.838933926Z Client mosq-BPPlSb27ObSgehGZEq sending DISCONNECT
+2024-10-09T18:10:38.843939343Z Publishing test message at Wed Oct  9 18:10:38 UTC 2024...
+2024-10-09T18:10:38.849987260Z Client mosq-8vl2ijqwkYKMpxEtmx sending CONNECT
+2024-10-09T18:10:38.850018885Z Client mosq-8vl2ijqwkYKMpxEtmx received CONNACK (0)
+2024-10-09T18:10:38.850023593Z Client mosq-8vl2ijqwkYKMpxEtmx sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:38.850027010Z Client mosq-8vl2ijqwkYKMpxEtmx sending DISCONNECT
+2024-10-09T18:10:39.860599177Z Publishing test message at Wed Oct  9 18:10:39 UTC 2024...
+2024-10-09T18:10:39.866796427Z Client mosq-ahFMRHzSMpWIqtCUIM sending CONNECT
+2024-10-09T18:10:39.866858094Z Client mosq-ahFMRHzSMpWIqtCUIM received CONNACK (0)
+2024-10-09T18:10:39.866865011Z Client mosq-ahFMRHzSMpWIqtCUIM sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:39.866872261Z Client mosq-ahFMRHzSMpWIqtCUIM sending DISCONNECT
+2024-10-09T18:10:40.874061553Z Publishing test message at Wed Oct  9 18:10:40 UTC 2024...
+2024-10-09T18:10:40.879787886Z Client mosq-bk0h9JV4pY3c7MFYBC sending CONNECT
+2024-10-09T18:10:40.879814178Z Client mosq-bk0h9JV4pY3c7MFYBC received CONNACK (0)
+2024-10-09T18:10:40.879817219Z Client mosq-bk0h9JV4pY3c7MFYBC sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:40.879819553Z Client mosq-bk0h9JV4pY3c7MFYBC sending DISCONNECT
+2024-10-09T18:10:41.885010595Z Publishing test message at Wed Oct  9 18:10:41 UTC 2024...
+2024-10-09T18:10:41.888538512Z Client mosq-p8k4dAeZYs1hWF0Xs0 sending CONNECT
+2024-10-09T18:10:41.888565387Z Client mosq-p8k4dAeZYs1hWF0Xs0 received CONNACK (0)
+2024-10-09T18:10:41.888567137Z Client mosq-p8k4dAeZYs1hWF0Xs0 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:41.888568678Z Client mosq-p8k4dAeZYs1hWF0Xs0 sending DISCONNECT
+2024-10-09T18:10:42.896266887Z Publishing test message at Wed Oct  9 18:10:42 UTC 2024...
+2024-10-09T18:10:42.902305179Z Client mosq-AgLuKL1r6lS3MlcjcZ sending CONNECT
+2024-10-09T18:10:42.902333179Z Client mosq-AgLuKL1r6lS3MlcjcZ received CONNACK (0)
+2024-10-09T18:10:42.902341720Z Client mosq-AgLuKL1r6lS3MlcjcZ sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:42.902345637Z Client mosq-AgLuKL1r6lS3MlcjcZ sending DISCONNECT
+2024-10-09T18:10:43.909967513Z Publishing test message at Wed Oct  9 18:10:43 UTC 2024...
+2024-10-09T18:10:43.916010971Z Client mosq-K1f3w69aAqQ3IE6ir7 sending CONNECT
+2024-10-09T18:10:43.916035846Z Client mosq-K1f3w69aAqQ3IE6ir7 received CONNACK (0)
+2024-10-09T18:10:43.916039554Z Client mosq-K1f3w69aAqQ3IE6ir7 sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:43.916042513Z Client mosq-K1f3w69aAqQ3IE6ir7 sending DISCONNECT
+2024-10-09T18:10:44.921535638Z Publishing test message at Wed Oct  9 18:10:44 UTC 2024...
+2024-10-09T18:10:44.925560096Z Client mosq-SNbIHcmJUq7eJOllaA sending CONNECT
+2024-10-09T18:10:44.925578263Z Client mosq-SNbIHcmJUq7eJOllaA received CONNACK (0)
+2024-10-09T18:10:44.925580513Z Client mosq-SNbIHcmJUq7eJOllaA sending PUBLISH (d0, q0, r0, m1, 'test/topic', ... (12 bytes))
+2024-10-09T18:10:44.925582346Z Client mosq-SNbIHcmJUq7eJOllaA sending DISCONNECT

@@ -17,19 +17,23 @@ CUSTOM_BROKER_IMAGE_FIRST="custom_mqtt_broker_first"
 CUSTOM_BROKER_IMAGE_SECOND="custom_mqtt_broker_second"
 CUSTOM_CLIENT_IMAGE="custom_mqtt_client"
 
+# Default copy method (SCP)
+COPY_METHOD="scp"
+
 # Usage function to display help for the script
 usage() {
-    echo "Usage: $0 -b SERVER_BW_LIMIT -i IDLE_SERVER_BW_LIMIT [options]"
+    echo "Usage: $0 -b SERVER_BW_LIMIT -i IDLE_SERVER_BW_LIMIT [-m COPY_METHOD] [options]"
     echo "  -b SERVER_BW_LIMIT        Bandwidth limit for the server broker (e.g., '1mbit') (required)"
     echo "  -i IDLE_SERVER_BW_LIMIT   Bandwidth limit for the idle broker (e.g., '1mbit') (required)"
     echo "  Optional parameters:"
     echo "  -n NETWORK_NAME           Docker network name (default: mqtt-net)"
     echo "  -c CLIENT_NAME            Client container name (default: mqtt-client)"
+    echo "  -m COPY_METHOD            Copy method to use: 'scp' or 'rsync' (default: scp)"
     exit 1
 }
 
 # Parse command-line arguments
-while getopts "b:i:n:c:" opt; do
+while getopts "b:i:n:c:m:" opt; do
     case "${opt}" in
         b)
             SERVER_BW_LIMIT=${OPTARG}
@@ -42,6 +46,13 @@ while getopts "b:i:n:c:" opt; do
             ;;
         c)
             CLIENT_NAME=${OPTARG}
+            ;;
+        m)
+            COPY_METHOD=${OPTARG}
+            if [[ "$COPY_METHOD" != "scp" && "$COPY_METHOD" != "rsync" ]]; then
+                echo "Invalid copy method: $COPY_METHOD. Use 'scp' or 'rsync'."
+                exit 1
+            fi
             ;;
         *)
             usage
@@ -56,7 +67,7 @@ if [ -z "$SERVER_BW_LIMIT" ] || [ -z "$IDLE_SERVER_BW_LIMIT" ]; then
 fi
 
 # Construct the log directory path
-LOG_DIR="logs/BW_${SERVER_BW_LIMIT}_IdleBW_${IDLE_SERVER_BW_LIMIT}"
+LOG_DIR="logs/${COPY_METHOD}_BW_${SERVER_BW_LIMIT}_IdleBW_${IDLE_SERVER_BW_LIMIT}"
 mkdir -p $LOG_DIR
 
 # Proceed with the rest of the script using the parsed variables
@@ -187,22 +198,27 @@ SSH_SETUP_DURATION_MS=$(($END_TIME_SSH_SETUP - $START_TIME_SSH_SETUP))
 echo "SSH setup duration: $SSH_SETUP_DURATION_MS milliseconds"
 echo "SSH setup duration: $SSH_SETUP_DURATION_MS milliseconds" >> $LOG_DIR/timings_log.txt
 
-# Start timing of scp command
-START_TIME_SCP=$(python3 -c 'import time; print(int(time.time() * 1000))')
+# Start timing of the copy command (SCP or RSYNC)
+START_TIME_COPY=$(python3 -c 'import time; print(int(time.time() * 1000))')
 
-# Perform the scp command from the first broker to the second broker
-echo "Copying mosquitto.db from $BROKER_NAME to $IDLE_BROKER_NAME over the network..."
-docker exec $BROKER_NAME scp /mosquitto/data/mosquitto.db root@$IDLE_BROKER_IP:/mosquitto/data/mosquitto.db
+# Choose between SCP and RSYNC for the file transfer
+if [ "$COPY_METHOD" == "scp" ]; then
+    echo "Copying mosquitto.db from $BROKER_NAME to $IDLE_BROKER_NAME using SCP..."
+    docker exec $BROKER_NAME scp /mosquitto/data/mosquitto.db root@$IDLE_BROKER_IP:/mosquitto/data/mosquitto.db
+else
+    echo "Copying mosquitto.db from $BROKER_NAME to $IDLE_BROKER_NAME using RSYNC..."
+    docker exec $BROKER_NAME rsync -avz -e "ssh -o StrictHostKeyChecking=no" /mosquitto/data/mosquitto.db root@$IDLE_BROKER_IP:/mosquitto/data/mosquitto.db >> $LOG_DIR/timings_log.txt
+fi
 
-# End timing of scp command
-END_TIME_SCP=$(python3 -c 'import time; print(int(time.time() * 1000))')
+# End timing of the copy command
+END_TIME_COPY=$(python3 -c 'import time; print(int(time.time() * 1000))')
 
-# Calculate duration of scp command in milliseconds
-SCP_DURATION_MS=$(($END_TIME_SCP - $START_TIME_SCP))
+# Calculate duration of the copy command in milliseconds
+COPY_DURATION_MS=$(($END_TIME_COPY - $START_TIME_COPY))
 
 # Output the duration
-echo "SCP command duration: $SCP_DURATION_MS milliseconds"
-echo "SCP command duration: $SCP_DURATION_MS milliseconds" >> $LOG_DIR/timings_log.txt
+echo "Copy command duration: $COPY_DURATION_MS milliseconds"
+echo "Copy command duration: $COPY_DURATION_MS milliseconds" >> $LOG_DIR/timings_log.txt
 
 # Remove bandwidth limits
 remove_bandwidth_limit $BROKER_NAME eth0
@@ -253,12 +269,20 @@ fi
 docker logs --timestamps $CLIENT_NAME > $LOG_DIR/client_log.txt
 
 echo "Logs are stored in the '$LOG_DIR' directory."
+
 # Create/append results to CSV file
 CSV_FILE="results.csv"
 if [ ! -f "$CSV_FILE" ]; then
-    echo "MOSQUITTO_DB_SIZE_BYTES,SERVER_BW_LIMIT,IDLE_SERVER_BW_LIMIT,SSH_SETUP_DURATION_MS,SCP_DURATION_MS,DOWNTIME_SECONDS" > $CSV_FILE
+    # Create the CSV header with the new structure
+    echo "MOSQUITTO_DB_SIZE_BYTES,SERVER_BW_LIMIT,IDLE_SERVER_BW_LIMIT,SSH_SETUP_DURATION_MS,TRANSFER_TIME_MS,TRANSFER_METHOD,DOWNTIME_SECONDS" > $CSV_FILE
 fi
-echo "$MOSQUITTO_DB_SIZE,$SERVER_BW_LIMIT,$IDLE_SERVER_BW_LIMIT,$SSH_SETUP_DURATION_MS,$SCP_DURATION_MS,$DOWNTIME_TOTAL" >> $CSV_FILE
+
+# Log the transfer method (either scp or rsync) and transfer time (TRANSFER_TIME_MS)
+TRANSFER_METHOD=$COPY_METHOD
+TRANSFER_TIME_MS=$COPY_DURATION_MS
+
+# Append the results to the CSV file
+echo "$MOSQUITTO_DB_SIZE,$SERVER_BW_LIMIT,$IDLE_SERVER_BW_LIMIT,$SSH_SETUP_DURATION_MS,$TRANSFER_TIME_MS,$TRANSFER_METHOD,$DOWNTIME_TOTAL" >> $CSV_FILE
 
 echo "Simulation results appended to $CSV_FILE"
 
