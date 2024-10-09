@@ -19,9 +19,9 @@ CUSTOM_CLIENT_IMAGE="custom_mqtt_client"
 
 # Usage function to display help for the script
 usage() {
-    echo "Usage: $0 -b BROKER_BW_LIMIT -i IDLE_BROKER_BW_LIMIT [options]"
-    echo "  -b BROKER_BW_LIMIT        Bandwidth limit for the broker (e.g., '1mbit') (required)"
-    echo "  -i IDLE_BROKER_BW_LIMIT   Bandwidth limit for the idle broker (e.g., '1mbit') (required)"
+    echo "Usage: $0 -b SERVER_BW_LIMIT -i IDLE_SERVER_BW_LIMIT [options]"
+    echo "  -b SERVER_BW_LIMIT        Bandwidth limit for the server broker (e.g., '1mbit') (required)"
+    echo "  -i IDLE_SERVER_BW_LIMIT   Bandwidth limit for the idle broker (e.g., '1mbit') (required)"
     echo "  Optional parameters:"
     echo "  -n NETWORK_NAME           Docker network name (default: mqtt-net)"
     echo "  -c CLIENT_NAME            Client container name (default: mqtt-client)"
@@ -32,10 +32,10 @@ usage() {
 while getopts "b:i:n:c:" opt; do
     case "${opt}" in
         b)
-            BROKER_BW_LIMIT=${OPTARG}
+            SERVER_BW_LIMIT=${OPTARG}
             ;;
         i)
-            IDLE_BROKER_BW_LIMIT=${OPTARG}
+            IDLE_SERVER_BW_LIMIT=${OPTARG}
             ;;
         n)
             NETWORK_NAME=${OPTARG}
@@ -50,19 +50,18 @@ while getopts "b:i:n:c:" opt; do
 done
 
 # Check if required parameters are provided
-if [ -z "$BROKER_BW_LIMIT" ] || [ -z "$IDLE_BROKER_BW_LIMIT" ]; then
+if [ -z "$SERVER_BW_LIMIT" ] || [ -z "$IDLE_SERVER_BW_LIMIT" ]; then
     echo "Error: Missing required arguments."
     usage
 fi
 
 # Construct the log directory path
-TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-LOG_DIR="logs/BW_${BROKER_BW_LIMIT}_IdleBW_${IDLE_BROKER_BW_LIMIT}_$TIMESTAMP"
+LOG_DIR="logs/BW_${SERVER_BW_LIMIT}_IdleBW_${IDLE_SERVER_BW_LIMIT}"
 mkdir -p $LOG_DIR
 
 # Proceed with the rest of the script using the parsed variables
-echo "BROKER_BW_LIMIT: $BROKER_BW_LIMIT"
-echo "IDLE_BROKER_BW_LIMIT: $IDLE_BROKER_BW_LIMIT"
+echo "SERVER_BW_LIMIT: $SERVER_BW_LIMIT"
+echo "IDLE_SERVER_BW_LIMIT: $IDLE_SERVER_BW_LIMIT"
 echo "NETWORK_NAME: $NETWORK_NAME"
 echo "CLIENT_NAME: $CLIENT_NAME"
 echo "Logs directory: $LOG_DIR"
@@ -150,13 +149,20 @@ docker exec $BROKER_NAME pkill mosquitto
 # Wait a moment to ensure Mosquitto has stopped
 sleep 2
 
+# Get the size of mosquitto.db before transmission
+MOSQUITTO_DB_SIZE=$(docker exec $BROKER_NAME du -b /mosquitto/data/mosquitto.db | cut -f1)
+echo "mosquitto.db size: $MOSQUITTO_DB_SIZE bytes"
+echo "mosquitto.db size: $MOSQUITTO_DB_SIZE bytes" >> $LOG_DIR/timings_log.txt
+
 # Apply bandwidth limits to the brokers
-limit_bandwidth $BROKER_NAME eth0 $BROKER_BW_LIMIT
-limit_bandwidth $IDLE_BROKER_NAME eth0 $IDLE_BROKER_BW_LIMIT
+limit_bandwidth $BROKER_NAME eth0 $SERVER_BW_LIMIT
+limit_bandwidth $IDLE_BROKER_NAME eth0 $IDLE_SERVER_BW_LIMIT
+
+# Start timing of SSH setup
+START_TIME_SSH_SETUP=$(python3 -c 'import time; print(int(time.time() * 1000))')
 
 # Set up SSH between brokers
 echo "Setting up SSH between brokers..."
-START_TIME_SSH=$(python3 -c 'import time; print(int(time.time() * 1000))')
 
 # Generate SSH keys on the first broker
 docker exec $BROKER_NAME ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
@@ -171,14 +177,15 @@ docker exec $IDLE_BROKER_NAME sh -c "echo '$PUB_KEY' >> /root/.ssh/authorized_ke
 # Update known_hosts on the first broker to avoid SSH prompts
 docker exec $BROKER_NAME sh -c "ssh-keyscan -H $IDLE_BROKER_IP >> /root/.ssh/known_hosts"
 
-END_TIME_SSH=$(python3 -c 'import time; print(int(time.time() * 1000))')
+# End timing of SSH setup
+END_TIME_SSH_SETUP=$(python3 -c 'import time; print(int(time.time() * 1000))')
 
-# Calculate duration of scp command in milliseconds
-SSH_DURATION_MS=$(($END_TIME_SSH - $START_TIME_SSH))
+# Calculate duration of SSH setup in milliseconds
+SSH_SETUP_DURATION_MS=$(($END_TIME_SSH_SETUP - $START_TIME_SSH_SETUP))
 
 # Output the duration
-echo "SSH command duration: $SSH_DURATION_MS milliseconds"
-echo "SSH command duration: $SSH_DURATION_MS milliseconds" >> $LOG_DIR/timings_log.txt
+echo "SSH setup duration: $SSH_SETUP_DURATION_MS milliseconds"
+echo "SSH setup duration: $SSH_SETUP_DURATION_MS milliseconds" >> $LOG_DIR/timings_log.txt
 
 # Start timing of scp command
 START_TIME_SCP=$(python3 -c 'import time; print(int(time.time() * 1000))')
@@ -225,17 +232,15 @@ sleep 30
 # Save logs of the second broker after migration
 docker logs --timestamps $IDLE_BROKER_NAME > $LOG_DIR/broker_log_after_migration.txt
 
-# Save client logs
-docker logs --timestamps $CLIENT_NAME > $LOG_DIR/client_log.txt
+# Path to downtime_log.txt
+DOWNTIME_LOG="${LOG_DIR}/downtime_log.txt"
 
-echo "Logs are stored in the '$LOG_DIR' directory."
+# Read the last logged downtime from the log file
+DOWNTIME_TOTAL=$(grep "after" "$DOWNTIME_LOG" | tail -1 | awk '{print $10}')
 
-# Wait for the client to finish and capture the downtime
-echo "Waiting for client container to finish..."
-docker wait $CLIENT_NAME
+# Print the value to check
+echo "The last recorded downtime was: $DOWNTIME_TOTAL seconds"
 
-# Read total downtime from the downtime_total.txt file
-DOWNTIME_TOTAL=$(cat $LOG_DIR/downtime_total.txt 2>/dev/null)
 
 # Check if DOWNTIME_TOTAL was captured correctly
 if [ -z "$DOWNTIME_TOTAL" ]; then
@@ -245,19 +250,22 @@ else
     echo "Total downtime: $DOWNTIME_TOTAL seconds"
 fi
 
+docker logs --timestamps $CLIENT_NAME > $LOG_DIR/client_log.txt
+
+echo "Logs are stored in the '$LOG_DIR' directory."
 # Create/append results to CSV file
 CSV_FILE="results.csv"
 if [ ! -f "$CSV_FILE" ]; then
-    echo "TIMESTAMP,SCP_DURATION_MS,DOWNTIME_SECONDS" > $CSV_FILE
+    echo "MOSQUITTO_DB_SIZE_BYTES,SERVER_BW_LIMIT,IDLE_SERVER_BW_LIMIT,SSH_SETUP_DURATION_MS,SCP_DURATION_MS,DOWNTIME_SECONDS" > $CSV_FILE
 fi
-echo "$TIMESTAMP,$SCP_DURATION_MS,$DOWNTIME_TOTAL" >> $CSV_FILE
+echo "$MOSQUITTO_DB_SIZE,$SERVER_BW_LIMIT,$IDLE_SERVER_BW_LIMIT,$SSH_SETUP_DURATION_MS,$SCP_DURATION_MS,$DOWNTIME_TOTAL" >> $CSV_FILE
 
 echo "Simulation results appended to $CSV_FILE"
 
 # Clean up after the test
 echo "Cleaning up containers and network..."
-docker stop $CLIENT_NAME $IDLE_BROKER_NAME
-docker rm $CLIENT_NAME $IDLE_BROKER_NAME
+docker stop $CLIENT_NAME $IDLE_BROKER_NAME $BROKER_NAME
+docker rm $CLIENT_NAME $IDLE_BROKER_NAME $BROKER_NAME
 docker network rm $NETWORK_NAME
 docker volume rm mosquitto_data_volume mosquitto_data_volume_second
 

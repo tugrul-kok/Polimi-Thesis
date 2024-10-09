@@ -1,2 +1,0 @@
-SSH command duration: 521 milliseconds
-SCP command duration: 236 milliseconds
