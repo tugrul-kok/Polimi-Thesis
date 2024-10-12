@@ -20,9 +20,13 @@ CUSTOM_CLIENT_IMAGE="custom_mqtt_client"
 # Default copy method (SCP)
 COPY_METHOD="scp"
 
+# Path to database files
+DATABASE_DIR="/Users/tugrul/Desktop/Tez/database_files/databases"
+
 # Usage function to display help for the script
 usage() {
-    echo "Usage: $0 -b SERVER_BW_LIMIT -i IDLE_SERVER_BW_LIMIT [-m COPY_METHOD] [options]"
+    echo "Usage: $0 -s DB_SIZE -b SERVER_BW_LIMIT -i IDLE_SERVER_BW_LIMIT [-m COPY_METHOD] [options]"
+    echo "  -s DB_SIZE                Size of the mosquitto.db to use initially (e.g., '1MB') (required)"
     echo "  -b SERVER_BW_LIMIT        Bandwidth limit for the server broker (e.g., '1mbit') (required)"
     echo "  -i IDLE_SERVER_BW_LIMIT   Bandwidth limit for the idle broker (e.g., '1mbit') (required)"
     echo "  Optional parameters:"
@@ -33,8 +37,11 @@ usage() {
 }
 
 # Parse command-line arguments
-while getopts "b:i:n:c:m:" opt; do
+while getopts "s:b:i:n:c:m:" opt; do
     case "${opt}" in
+        s)
+            DB_SIZE=${OPTARG}
+            ;;
         b)
             SERVER_BW_LIMIT=${OPTARG}
             ;;
@@ -61,7 +68,7 @@ while getopts "b:i:n:c:m:" opt; do
 done
 
 # Check if required parameters are provided
-if [ -z "$SERVER_BW_LIMIT" ] || [ -z "$IDLE_SERVER_BW_LIMIT" ]; then
+if [ -z "$DB_SIZE" ] || [ -z "$SERVER_BW_LIMIT" ] || [ -z "$IDLE_SERVER_BW_LIMIT" ]; then
     echo "Error: Missing required arguments."
     usage
 fi
@@ -70,7 +77,17 @@ fi
 LOG_DIR="logs/${COPY_METHOD}_BW_${SERVER_BW_LIMIT}_IdleBW_${IDLE_SERVER_BW_LIMIT}"
 mkdir -p $LOG_DIR
 
+# Define path to the initial database file
+INITIAL_DB_FILE="${DATABASE_DIR}/${DB_SIZE}/mosquitto.db"
+
+# Check if the database file exists
+if [ ! -f "$INITIAL_DB_FILE" ]; then
+    echo "Error: Database file '$INITIAL_DB_FILE' not found."
+    exit 1
+fi
+
 # Proceed with the rest of the script using the parsed variables
+echo "DB_SIZE: $DB_SIZE"
 echo "SERVER_BW_LIMIT: $SERVER_BW_LIMIT"
 echo "IDLE_SERVER_BW_LIMIT: $IDLE_SERVER_BW_LIMIT"
 echo "NETWORK_NAME: $NETWORK_NAME"
@@ -114,6 +131,9 @@ docker build -t $CUSTOM_CLIENT_IMAGE -f Dockerfile.client .
 docker volume create mosquitto_data_volume
 docker volume create mosquitto_data_volume_second
 
+# Copy the initial mosquitto.db file to a temporary location
+cp "$INITIAL_DB_FILE" ./mosquitto.db
+
 # Run active MQTT broker container (First Broker)
 docker run -d --name $BROKER_NAME \
     --cap-add=NET_ADMIN \
@@ -122,6 +142,19 @@ docker run -d --name $BROKER_NAME \
     --mac-address $BROKER_MAC \
     -v mosquitto_data_volume:/mosquitto/data/ \
     $CUSTOM_BROKER_IMAGE_FIRST
+
+# Wait a moment to ensure the broker starts
+sleep 5
+
+# Stop the broker to copy the mosquitto.db file safely
+docker stop $BROKER_NAME
+
+# Copy the initial mosquitto.db file into the first broker's data volume
+docker cp ./mosquitto.db $BROKER_NAME:/mosquitto/data/mosquitto.db
+
+# Ensure the ownership of mosquitto.db file is set correctly for Mosquitto
+docker start $BROKER_NAME
+docker exec $BROKER_NAME chown mosquitto:mosquitto /mosquitto/data/mosquitto.db
 
 # Run idle MQTT broker container (Second Broker) with its own data volume
 docker run -d --name $IDLE_BROKER_NAME \
