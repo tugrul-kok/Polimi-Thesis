@@ -7,10 +7,10 @@ MESSAGES_NUM=(10 20 30 40 50)
 MSG_SIZE=(1024) #1024 2048 4096 8192 16384)
 PRETIME=2000
 INTERVAL_TIME=10000
-RETAIN_VALUES=("false")
+RETAIN_VALUES=(true)
 QOS_VALUES=(0)
 TOPIC_NUMBERS=(1)
-CLEAN_SESSION=("true")
+CLEAN_SESSION=(true)
 RESULTS_FOLDER_BASE="results_tests/"
 
 BROKER="tcp://172.20.0.2:1883"
@@ -21,7 +21,9 @@ MOSQUITTO_DB_DUMP="/Users/tugrul/Desktop/Tez/mqtt_broker_size_estimation/my_migr
 mkdir -p $RESULTS_FOLDER_BASE
 
 echo "Creating a new network..."
-docker network rm myNet
+if docker network inspect myNet &>/dev/null; then
+  docker network rm myNet
+fi
 
 docker network create \
     --driver=bridge \
@@ -41,8 +43,14 @@ for ((round=0; round<ROUND; round++)); do
               for clean in "${CLEAN_SESSION[@]}"; do
                 echo "==================================================="
                 echo "Cleaning the environment..."
-                docker stop $(docker ps -a -q)
-                docker rm $(docker ps -a -q)
+
+                containers=$(docker ps -a -q)
+                if [ -n "$containers" ]; then
+                  docker stop $containers
+                  docker rm $containers
+                else
+                  echo "No containers to stop or remove."
+                fi
 
                 echo ""
                 sleep 1
@@ -60,10 +68,11 @@ for ((round=0; round<ROUND; round++)); do
                 echo "RETAIN: $retain"
                 echo "QoS: $qos"
                 echo "TOPICS: $topics"
+                echo "CLEAN SESSION: $clean"
                 echo ""
 
                 echo "Creating broker..."
-                docker run -d --rm --name mosquitto-broker --network myNet -v $PWD/config/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
+                docker run -d --rm --name mosquitto-broker --network myNet -v $PWD/config/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto:1.6.9
                 echo ""
 
                 docker stats --format "{{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}" mosquitto-broker |
@@ -78,20 +87,23 @@ for ((round=0; round<ROUND; round++)); do
                 sleep 10
                 echo "Starting publisher"
                 for ((t=1; t<=topics; t++)); do
-                  docker run -t --rm --name bench-pub-${t} --network myNet flipperthedog/mqtt-bench mqtt-bench -action=pub -broker=$BROKER \
+                  docker run -t --rm --name bench-pub-${t} --network myNet mqtt-bench -action=pub -broker=$BROKER \
                         -clients="${PUBLISHER[i]}" \
                         -count=$MESSAGES  \
                         -size="$size"   \
                         -qos=$qos \
                         -retain=$retain \
+                        -clean-session=$clean \
                         -intervaltime=$INTERVAL_TIME -pretime=$PRETIME -topic="/mqtt-bench/benchmark/topic_${t}" -x &
                 done
 
                 echo "Starting subscriber"
-                docker run -t --rm --name bench-sub --network myNet flipperthedog/mqtt-bench mqtt-bench -action=sub -broker=$BROKER \
+                docker run -t --rm --name bench-sub --network myNet mqtt-bench -action=sub -broker=$BROKER \
                       -clients="${SUBSCRIBER[i]}" \
-                      -count=$((PUBLISHER[i]*MESSAGES-PUBLISHER[i]*2)) \
+                      -count=$(( PUBLISHER[i] * topics * MESSAGES )) \
                       -qos=$qos \
+                      -retain=$retain \
+                      -clean-session=$clean \
                       -intervaltime=$INTERVAL_TIME -pretime=0 -x -topic="/mqtt-bench/benchmark/#"
 
                 echo ""
