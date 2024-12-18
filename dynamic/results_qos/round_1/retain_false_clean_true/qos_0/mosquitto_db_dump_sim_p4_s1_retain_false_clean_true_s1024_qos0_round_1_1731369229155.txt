@@ -1,0 +1,8 @@
+Mosquitto DB dump
+CRC: 0
+DB version: 5
+DB_CHUNK_CFG:
+	Length: 16
+	Shutdown: 0
+	DB ID size: 8
+	Last DB ID: 58

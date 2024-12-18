@@ -1,0 +1,297 @@
+Mosquitto DB dump
+CRC: 0
+DB version: 5
+DB_CHUNK_CFG:
+	Length: 16
+	Shutdown: 0
+	DB ID size: 8
+	Last DB ID: 100
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 100
+	Source Port: 1883
+	Source MID: 4
+	Topic: /mqtt-bench/benchmark/topic_4/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 99
+	Source Port: 1883
+	Source MID: 4
+	Topic: /mqtt-bench/benchmark/topic_3/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 98
+	Source Port: 1883
+	Source MID: 4
+	Topic: /mqtt-bench/benchmark/topic_2/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1102
+	Store ID: 97
+	Source Port: 1883
+	Source MID: 4
+	Topic: /mqtt-bench/benchmark/topic_1/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 96
+	Source Port: 1883
+	Source MID: 3
+	Topic: /mqtt-bench/benchmark/topic_4/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 95
+	Source Port: 1883
+	Source MID: 3
+	Topic: /mqtt-bench/benchmark/topic_3/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 94
+	Source Port: 1883
+	Source MID: 3
+	Topic: /mqtt-bench/benchmark/topic_2/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1102
+	Store ID: 93
+	Source Port: 1883
+	Source MID: 3
+	Topic: /mqtt-bench/benchmark/topic_1/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 58
+	Source Port: 1883
+	Source MID: 2
+	Topic: /mqtt-bench/benchmark/topic_4/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 57
+	Source Port: 1883
+	Source MID: 2
+	Topic: /mqtt-bench/benchmark/topic_3/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 56
+	Source Port: 1883
+	Source MID: 2
+	Topic: /mqtt-bench/benchmark/topic_2/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1102
+	Store ID: 55
+	Source Port: 1883
+	Source MID: 2
+	Topic: /mqtt-bench/benchmark/topic_1/0
+	QoS: 1
+	Retain: 1
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_CLIENT:
+	Length: 31
+	Client ID: mqttbench1-99-0
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 32
+	Client ID: mqttbench1-384-0
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 32
+	Client ID: mqttbench1-254-0
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 32
+	Client ID: mqttbench1-450-0
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Last MID: 16
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 55
+	MID: 5
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 56
+	MID: 6
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 57
+	MID: 7
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 58
+	MID: 8
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 93
+	MID: 9
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 94
+	MID: 10
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 95
+	MID: 11
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 96
+	MID: 12
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 97
+	MID: 13
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 98
+	MID: 14
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 99
+	MID: 15
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_CLIENT_MSG:
+	Length: 32
+	Client ID: mqttbench1-538-0
+	Store ID: 100
+	MID: 16
+	QoS: 1
+	Retain: 0
+	Direction: 1
+	State: 3
+	Dup: 1
+DB_CHUNK_SUB:
+	Length: 51
+	Client ID: mqttbench1-538-0
+	Topic: /mqtt-bench/benchmark/#
+	QoS: 1
+	Subscription ID: 0
+	Options: 0x00
+DB_CHUNK_RETAIN:
+	Length: 8
+	Store ID: 97
+DB_CHUNK_RETAIN:
+	Length: 8
+	Store ID: 98
+DB_CHUNK_RETAIN:
+	Length: 8
+	Store ID: 99
+DB_CHUNK_RETAIN:
+	Length: 8
+	Store ID: 100

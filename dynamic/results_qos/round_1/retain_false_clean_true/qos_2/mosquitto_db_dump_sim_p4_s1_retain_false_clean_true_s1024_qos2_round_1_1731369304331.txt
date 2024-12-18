@@ -1,0 +1,48 @@
+Mosquitto DB dump
+CRC: 0
+DB version: 5
+DB_CHUNK_CFG:
+	Length: 16
+	Shutdown: 0
+	DB ID size: 8
+	Last DB ID: 58
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 58
+	Source Port: 1883
+	Source MID: 2
+	Topic: /mqtt-bench/benchmark/topic_4/0
+	QoS: 2
+	Retain: 0
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 57
+	Source Port: 1883
+	Source MID: 2
+	Topic: /mqtt-bench/benchmark/topic_3/0
+	QoS: 2
+	Retain: 0
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 56
+	Source Port: 1883
+	Source MID: 2
+	Topic: /mqtt-bench/benchmark/topic_2/0
+	QoS: 2
+	Retain: 0
+	Payload Length: 1024
+	Expiry Time: 0
+DB_CHUNK_MSG_STORE:
+	Length: 1102
+	Store ID: 55
+	Source Port: 1883
+	Source MID: 2
+	Topic: /mqtt-bench/benchmark/topic_1/0
+	QoS: 2
+	Retain: 0
+	Payload Length: 1024
+	Expiry Time: 0

@@ -1,0 +1,36 @@
+# Dockerfile.broker
+
+FROM ubuntu:20.04
+
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y mosquitto mosquitto-clients openssh-server openssh-client iproute2 rsync && \
+    mkdir /var/run/sshd && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set root password (use 'root' for simplicity)
+RUN echo 'root:root' | chpasswd
+
+# Enable root login over SSH
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+# Set up SSH keys
+RUN ssh-keygen -A
+
+# Create the necessary directories for Mosquitto persistence and logging
+RUN mkdir -p /mosquitto/data/ && \
+    mkdir -p /mosquitto/log/
+
+# Copy the Mosquitto configuration file
+COPY mosquitto.conf /etc/mosquitto/mosquitto.conf
+
+# Copy the start script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Expose SSH and Mosquitto broker ports
+EXPOSE 22 1883
+
+# Start SSH and Mosquitto broker
+CMD ["/start.sh"]
+

@@ -1,0 +1,18 @@
+Mosquitto DB dump
+CRC: 0
+DB version: 5
+DB_CHUNK_CFG:
+	Length: 16
+	Shutdown: 0
+	DB ID size: 8
+	Last DB ID: 53
+DB_CHUNK_MSG_STORE:
+	Length: 1103
+	Store ID: 53
+	Source Port: 1883
+	Source MID: 1
+	Topic: /mqtt-bench/benchmark/topic_3/0
+	QoS: 2
+	Retain: 0
+	Payload Length: 1024
+	Expiry Time: 0

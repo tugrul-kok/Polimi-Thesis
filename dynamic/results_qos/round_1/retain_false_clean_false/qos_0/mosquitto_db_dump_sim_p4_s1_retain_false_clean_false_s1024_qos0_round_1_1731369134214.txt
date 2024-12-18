@@ -1,0 +1,45 @@
+Mosquitto DB dump
+CRC: 0
+DB version: 5
+DB_CHUNK_CFG:
+	Length: 16
+	Shutdown: 0
+	DB ID size: 8
+	Last DB ID: 144
+DB_CHUNK_CLIENT:
+	Length: 32
+	Client ID: mqttbench1-566-0
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 30
+	Client ID: mqttbench1-6-0
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 32
+	Client ID: mqttbench1-835-0
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 32
+	Client ID: mqttbench1-826-0
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_CLIENT:
+	Length: 32
+	Client ID: mqttbench1-312-0
+	Last MID: 0
+	Session expiry time: 0
+	Session expiry interval: 4294967295
+DB_CHUNK_SUB:
+	Length: 51
+	Client ID: mqttbench1-312-0
+	Topic: /mqtt-bench/benchmark/#
+	QoS: 0
+	Subscription ID: 0
+	Options: 0x00

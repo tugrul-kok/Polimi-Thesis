@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Set your desired values
+ROUND=1
+PUBLISHER=1 #"6,7,8,16,32,64,1,1,1,1,1,1,1,1,1,1"
+SUBSCRIBER=1 #"1,1,1,1,1,1,2,3,4,5,6,7,8,16,32,64"
+MESSAGES_NUM=20
+MSG_SIZE="1024"
+PRETIME=1000
+INTERVAL_TIME=100
+RETAIN_VALUES="true,false"
+QOS_VALUES="0,1,2"
+TOPIC_NUMBERS="1,2,3,4,8,16"
+CLEAN_SESSION="true,false"
+RESULTS_FOLDER_BASE="desired_results"
+
+# Call the scenario_mosquitto_new.sh script with the parameters
+./scenario_mosquitto.sh \
+    --ROUND "$ROUND" \
+    --PUBLISHER "$PUBLISHER" \
+    --SUBSCRIBER "$SUBSCRIBER" \
+    --MESSAGES_NUM "$MESSAGES_NUM" \
+    --MSG_SIZE "$MSG_SIZE" \
+    --PRETIME "$PRETIME" \
+    --INTERVAL_TIME "$INTERVAL_TIME" \
+    --RETAIN_VALUES "$RETAIN_VALUES" \
+    --QOS_VALUES "$QOS_VALUES" \
+    --TOPIC_NUMBERS "$TOPIC_NUMBERS" \
+    --CLEAN_SESSION "$CLEAN_SESSION" \
+    --RESULTS_FOLDER_BASE "$RESULTS_FOLDER_BASE"
